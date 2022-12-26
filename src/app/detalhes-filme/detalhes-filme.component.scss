@@ -1,0 +1,224 @@
+.header {
+  color: white;
+  background-color: #348ac7;
+  height: 660px;
+  .logo {
+    background-color: #0070ad;
+    height: 56px;
+    margin: 0;
+
+    p {
+      font-family: "Revalia";
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 18px 0 18px 30px;
+    }
+  }
+  .detalhes {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    margin-top: 72px;
+
+    .titulo {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 38px;
+      letter-spacing: -0.005em;
+    }
+    .informacoes {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .avaliacao {
+      display: flex;
+      font-weight: 400;
+      font-size: 16px;
+      align-items: center;
+      width: 15%;
+      color: #14ff00;
+      margin-top: 16px;
+
+      p {
+        margin-top: 10px;
+        margin-left: 12px;
+        color: white;
+      }
+
+      .spinner-container {
+        position: relative;
+
+      }
+      .spinner-background {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        overflow: hidden;
+        border-color: rgba(103, 58, 183, 0.12);
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 10px;
+      }
+
+    }
+
+    img {
+      position: relative;
+      max-width: 383px;
+      max-height: 574px;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      border-radius: 8px;
+    }
+
+    .corpo-header {
+      margin-left: 33px;
+    }
+
+    .sinopse {
+      margin-top: 32px;
+      .titulo-sinopse {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+      }
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.005em;
+        width: 55%;
+      }
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+  width: 80%;
+  margin: auto;
+  height: 100%;
+
+  .elenco {
+    h3 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .elenco-card {
+      width: 191px;
+      height: 336px;
+      padding: 8px;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-top: 24px;
+      margin-bottom: 102px;
+      border-radius: 4px;
+      margin-right: 16px;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      img {
+        margin-top: 4px;
+        width: 175px;
+        height: 222px;
+      }
+    }
+    .info-personagem {
+      .ator {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        color: #131313;
+      }
+      .personagem {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #131313;
+        width: 170px;
+      }
+    }
+    .elenco-grid {
+      display: flex;
+    }
+  }
+  .trailer {
+    .titulo-trailer {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .video-trailer {
+      display: flex;
+      margin: 24px 0 64px 0;
+
+      img {
+        width: 907px;
+        height: 510px;
+        margin: auto;
+      }
+    }
+  }
+
+  .recomendacoes {
+    margin: 0;
+    h3 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .recomendados {
+      display: flex;
+      margin: 0;
+      .filme {
+        margin: 25px 32px 0px 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        max-width: 176px;
+        box-shadow: none;
+        :hover {
+          cursor: pointer;
+        }
+
+        img {
+          border-radius: 4px;
+          max-width: 176px;
+          height: 264px;
+          margin: 0;
+        }
+
+        mat-card-content {
+          margin-bottom: 0;
+
+          .descricao {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+            color: black;
+            margin-bottom: 0;
+            margin-top: 8px;
+          }
+
+          .data-lancamento {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            color: #646464;
+            margin-top: 0;
+            margin-bottom: 100px;
+          }
+        }
+      }
+    }
+  }
+}
