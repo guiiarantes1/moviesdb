@@ -11,6 +11,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { DetalhesFilmeComponent } from './detalhes-filme/detalhes-filme.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
+import { FilmesService } from './services/filmes.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FilmesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
