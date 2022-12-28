@@ -7,41 +7,35 @@
     <div class="detalhes">
       <section class="imagem">
         <img
-          src="https://lumiere-a.akamaihd.net/v1/images/image_8c4aa72b.jpeg"
+        [src]="imgBaseUrl + detalhes.poster_path"
         />
       </section>
       <div class="corpo-header">
         <section class="titulo">
-          <p>DeadPool (2016)</p>
+          <p>{{detalhes.title}}</p>
         </section>
         <section class="informacoes">
           <p>
-            16 anos • 11/02/2016 (BR) • Ação, Aventura, Comédia, Ficção
-            científica • 1h 47m
+            16 anos • {{detalhes.release_date | date : "dd/MM/yyyy"}} (BR) • {{genres}} • 1h 47m
           </p>
         </section>
         <section class="avaliacao">
           <div class="spinner-container">
-            <div class="spinner-background">{{spinner.value}}%</div>
-            <mat-progress-spinner #spinner
-                color="accent"
-                mode="determinate"
-                value="75"
-                diameter="80">
+            <div class="spinner-background">{{ spinner.value }}%</div>
+            <mat-progress-spinner
+              #spinner
+              color="accent"
+              mode="determinate"
+              value="75"
+              diameter="80"
+            >
             </mat-progress-spinner>
-        </div>
+          </div>
           <p>Avaliação dos usuários</p>
         </section>
         <section class="sinopse">
           <p class="titulo-sinopse">Sinopse</p>
-          <p>
-            Baseado no anti-herói não convencional da Marvel Comics, Deadpool
-            conta a história da origem do ex-agente das Forças Especiais que se
-            tornou o mercenário Wade Wilson. Depois de ser submetido a um
-            desonesto experimento que o deixa com poderes de cura acelerada,
-            Wade adota o alter ego de Deadpool. Armado com suas novas
-            habilidades e um senso de humor negro e distorcido, Deadpool
-            persegue o homem que quase destruiu sua vida.
+          <p>{{detalhes.overview}}
           </p>
         </section>
       </div>
@@ -53,179 +47,41 @@
       <h3>Elenco original</h3>
 
       <section class="elenco-grid">
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
+        <mat-card class="elenco-card" *ngFor="let credit of credits">
+          <img mat-card-image [src]="imgBaseUrl + credit.profile_path" />
           <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="elenco-card">
-          <img
-            mat-card-image
-            src="https://www.themoviedb.org/t/p/w500/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
-          />
-          <mat-card-content class="info-personagem">
-            <p class="ator">Ryan Reynolds</p>
-            <p class="personagem">Wade Wilson / Deadpool</p>
+            <p class="ator">{{ credit.name }}</p>
+            <p class="personagem">{{ credit.character }}</p>
           </mat-card-content>
         </mat-card>
       </section>
     </div>
 
-    <div class="trailer">
+    <div class="trailer" *ngIf="videoUrl" >
       <h3 class="titulo-trailer">Trailer</h3>
       <section class="video-trailer">
-        <img src="https://i.ytimg.com/vi/rW-44KuoAdA/maxresdefault.jpg" />
+        <iframe class="trailer-filme" [src]="videoUrl">
+
+        </iframe>
       </section>
     </div>
 
     <div class="recomendacoes">
       <h3>Recomendações</h3>
       <section class="recomendados">
-        <mat-card class="filme">
+        <mat-card class="filme" *ngFor="let recomendacao of recomendacoes">
           <img
             mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
+            [src]="imgBaseUrl + recomendacao.poster_path"
+            [alt]="recomendacao.title"
           />
           <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
+            <p class="descricao">{{ recomendacao.title }}</p>
+            <p class="data-lancamento">
+              {{ recomendacao.release_date | date : "dd/MM/yyyy" }}
+            </p>
           </mat-card-content>
         </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISDxUSEhIVFRUVFRUVFRUVFxUVGBUXFRUWFhUWFRUYHSggGB0lHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi8lHR8tListLS0tLTAtKystLS0uLSsrKy4tLS0tLSstLy4tLS8tLS4tLS0vLS0tLS0tLS0tLf/AABEIAN8AlQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAACAAEDBAUGB//EADwQAAIBAwIDBQYDBwMFAQAAAAECAAMREgQhBTFBE1FhcZEGFCIygbFSocEHI0JyksLRYoLwQ4OisuEz/8QAGgEAAwEBAQEAAAAAAAAAAAAAAAECAwQFBv/EACoRAAICAQMDAwMFAQAAAAAAAAABAhESAyFBEzFRBGHBMoGRUnGx8PEi/9oADAMBAAIRAxEAPwC3BIhkRrT6Kz54C0GSEQSIxAWjQooCAjEQ4NoADGMK0YxgDaNaFGgAMa0KNAYMUKNaMBooooAOIoliksDTgkSQiCRITKaAjWhERpRIBWCRJDBgAFoxEODGIEiCRJLQSIAARGtDjERgDGhWjQAGNCjWgAJEaHGgMSxoQEaJga5WCRJrQSJjZpRCRBIkxEAiWmQzR0/DaaURX1DMFYkU6aAZvbmbnYCFo9Po6tQJlWok7AvgyknkMhuPr6yb2lfIacr8nYKF8wfjH2mTpKBeoqqLlmAHrOeOU4ubk18HRJxhNQxT+TV4O501SuDQarUQYiwuqbm7N1AO3ITnjPQuGVR7/q7HbBfVRY/nOAtHoSylJ80v4DXjjGK4t/yRkRpJaCROo5LAtGtDIgwCwbRiIcaAAWjEQ7RWgMjIjWkhEG0YCURR1iiA2isEiTssAic9mxERAIkxEFllJkMl02tKqUZFqUyb4MStj1KON1J67EHul6jxmnSB9304RyLdo7lyv8ot+o8jIeE8KbUMwDBQouWPId0r8Q0L0ahRxv0I5Ed4MycdOUnG/tZsp6kYqVbcOiPRcRqUmZkKkurKxcFrhjcnYjfx/KQairljsAFUKAPDmSepJuZrvoqfuAqhf3na4sbnlvYW5d0l4fw7T+7NqKjPUxtlTT4cSTYXJtfvuPpePqacXlW90Lp6kqje1Wc6RGIm72dGvSqslHsXpLmAKjVFdAbG+QFjM/S8Mq1QTTQsFIBtba/LbnNY6sWre1eTKWlJNVvfgoWjWmxX9ndQlM1Hp4qoubst7eV5lWlxnGX0uyJQlH6lRERGtNThXBquoJ7MCy/MzEAC/wCf5Taf2Y09KmKlfU/CTYGmtwT3Ai9+R6TOfqIQdN7mkPT6k1aWxyEa01+K0tOzquj7RtrHJWuT0xBAPf0mdX07IbOpU9zAg+hmkJqSsicHF1/hCRGIhWilE2CBFCEUBnQskArLZpyMpOVM3ZVKwCJaKQ9LQRnAqVFpr+JuXl3XjcklbEouTpF3hq46DUt+IqnrYW/8pbo8NqanRqHGL0zZGe4yTuJ57f2iXBqqVDSF9OMxnYF7gFvxculpk6HjdY6lGqVLqTiVACoA23y+Bsbm525ziucrnFdnd/B3VCCUJvuqr5IdAMtBqE5lWSp37bA2/pMn9nK9MaeumL54F2PwEEJuMA1xcX6rJuH6UU9ZW05+WojqPqMl/K8oez9SnTqOatRUGDUyGDb5dxtbpy5zSdSjL7P8kQuMo/dfgn0fEBqMtPgKbVVxWoCpZivxBalkUWNrbfrF7PrUXS6oKGDgIBjfK/xAgW3vK+lfT6dxUWo1Z13VQjIuRFgWdunlvLnCqr+4alsmuW5gkWLY3K2Pw/N0ikkotR7Ou/kINuSc/qV9vBzuv0lVcTWV7m5U1CzHbnYsSes2+JVVp6TTMlGgWdDkXp5fKADyZd7mYNRmPzMzfzMzH1YmdTrqlD3PTGrRYghgOzbde+2R3vbrNdXbBNc8GOk8s2nxyY3Y062lq1DTFJqeIOGQp1Mj8pQk2PLa56S9oV7XhNROtJ8h5bMfu0j1tAVqYXSsppp8XY2K1L2sXYN/+nmNoPsrrqdF6qVjilRbEkHYi4se7Yn0kveDkuHdcmi21FF8qr4f7ESE0OHrUpkh67spcbFUW4xVhuLkQ+C1Wr0a1KsS6JSaoruSzU2XlZzvv3X6ShQ4jUpA01KvTJJwqKHXwa2xB8jA1HE6jJh8CIdytJMA3dluSfW00elJ3tu3dmS1Yqt9kqr+7GdaDaS2jYzsOIBVikirFAZ1BWCUlorAKTis62iqUgFJbKSNkjsii7qVtw+mO+ox/wDeYhSX3qOUCFjgCSFsLAnre1+p69ZXKRaapO+WytWSbVcJFs8Vy1NKs6hMMQxBLXG4LWA7mO0WrfRh2YdrVLMWxAwUXN/max9LygywCsOiuG1wD9Q98knvZBUAJJAsLmwvew7r9ZJptXVpX7OoyX5gWsfNSCPyiKwSs3aTVM51Np2nRPrOK1aqYPgRscsAH2/1A2/KBqeIM9GnRKqBTJIYXub32I+v1kJWCViWnBVS7blPWm7t99iIXBuCQRyIJBHiCNxAIkxWCVmm3cxcn2ISI1pMVglZQrIrRrSQiNaMWQKiKGoiiHZ2BWCVk5WCVnn2ek0QFYDLLBWARKTIaKrLI2WWmWRlZaZm0VWWRlZaKyNllJmTRWKwSssFYJWVZBWIglZYIgFZdkMgIglZOVgkRkEBWCRJysAiMTIsYJWSkQSJViIwsUkAihYzsiIxEczN9ouKe7aWpWtkVAsOhLEKL+FzPKUj28bLxEAieQU/bDXFmq+8D4SpNMhbEE2+FbWsNut56lwfia1tKmoIxDLcjuIJBt9QZakTLTaM/wBquKvp6S9mLu5NiRcAAb+F+QlP2U4vUrmolZhmLMAABZTsdxzsbevpne0vG6VY47gjYEdPpD9iNGQ7VDWDfDYoFI5nZiTz5f8AOsxcnK+DScdNaVcnWEQCJMRIzN8jgaIWEAiTMJG0tSIcSJhBIkpEjMeRDiARBIhmZntDTvpnGRU2uCOd1N/0jlPFWENJzkorkukQSJkey3EK1akTVW2JxDcstt9vDv8AGXeLa9aFI1G3tsB1JPICNaiasUtJxljyWCIJEi4fqDVpJUK45ANje9r8t/KxkxErInCgbRQhFFYYnWhgeolfiegSvRelUHwuLG3MdQR4ggH6TPrKA3wU7D6n9YdbV1CtgtvHe88/p+D2M/Jxg/Zx+8w96XC9yoHx+Hw3te3WaPHaw0FCpSVnKY0uyUm+GQqggHnzS/1nIcb1X7/VPYswIAawOOLAE7jbZbX8Zi8S4vUrKFYiwAG197dTcnvPLvg9i1v3BbWM7fCCxPd0HW5+vUzq/ZjXPpqymurKhFiR8XzbLstzzt6zik1JVQqgDcFtz8Vj+X0ll+K1WqByRsQbdNjcQTZUopo92KwCs830n7RNQCS9Om9+QGS28jc7eEnf9otU8qNIebMf8S7OV6TO9ZYBSeft+0Gv0SiPo5/ukFT281J5dkPJD+rR5E9BnohWRuLXJ6c/KeZ1vbTWH/qAeVNf1BmbquP6lwytWchjci4APpDMF6d+T1uoQAWJAA3JOwH1mJxbiejamVq1ltfcI1zt/L5zy59a5Fi5I7ixI9JXauO/8onO1RcPT4u7O+o+2dCnSVVpuxUW6Ac9iT1J5nbmZl6jiT8Qr0qZXBcrWBJ2PzMT4AGch207H2J4c5vXsbfKpA/qt9vWVC5NRHOMIXNLc78IBYcugH2jlZk+6vfk35yZDVH4vqLzrx8M4K9jQCxSnnVPQ+kaLH3Cjpjrz+E+h/xINZxcpTZ8L4gkA/Dc9Bk2wmKeJr4yGvxQBWNmIAJPkBflObpext19+55ZW4gXqu5O79oW/wBytf7zO7c98t0UVlL1DgHZgGAuBtcjEbjn95T1iU1P7t8xc7449B0P19JlWx33vQveD3xDUH/glXKS6XAuBUJC73I3I22284DZP70e+L3s98kVdLvd6p32sqj7mBUOn/hFU+eA+wjom/3BOqbvMA6lu8yAxoiqJjWPfBNSBhGamRvY28jAKDNSNnC0+jqP8iM3iAbesOvw2qguyEAddv8AMKfgVq6sGkwuL3tfe3O3hPaeEaqmunpikrBMBiCLGxHXfnPDp1HAvaSnRXFxWJPNu0yH+1SBaVCr3MteEnH/AJPVDrvBvT/7IjxAePpObp8YpkA/FYgEeR5SQcTpn8U3wfg4M/c6FNf4xTDXiFP/AFRosR5PyWfeKcZtdTUbkAd5Nh6zkDqz3ylxBBVAuTccu7fwm7hsZRW++yK1LQZUTTyph+0uCalK2Nt7WN73ttKOu4c1KxuGBJAK77gAn7iW6HD9xmbgcgP1M0tQ+a2P0mPR2O5+oqSXBzlPT5cj1Fwdj9O+XafB71AmWxIBIF8bjmbcoGoQLL3CdZ8JXEADe46+fjJhppyo01dSUYWjQ4b7P0Uuap7Q9NmUDn0B3vtNP3LTDlSp/VAfvMv3mN7xOpaUUebLV1JO2zSeig+TsV/7QP2YQGFb+GpR+tNh/cZQ94MXvB74YISlLknqe+dHofS4P5iZmtGuZSrXK9QuG/8ATvLnvB74veD3yXpXyzSOq0/pX4OfXT6gLiFqhb3sA1rytV07j5lb6g/rOo94PfH96blc+tvtM36f3N16t/pOQKy3wnTo9ULUbFe/v8L9POaml7QOxy2vyIyJt4mWKiqw3RfQfeRHRb3Np+oS2N8UV6HaMaY75gae6bBjj0B3t5GTdue+bqLOFpXsbKKB/FFMmlWPfHhiwoy+0MbMwMos4sjpwJBUMcVTIc4s4ZCwRX1qsWuN7ybh4xuSLEws4+chRSlZq5NxxLHaxdrK+cWc0yMOmWO1i7WV8osoZB0yz2sXaytnFnDIOmWO0iFSV84s4ZBgyz2kbtJXzizhkGDLHaRZyvnFnDIOmy5TaKVUqRQseDK2UbKDeNeZm9B5R8pHeK8Aokyiykd4oBRJlGzgRQCg84soF4rwCg8osoF4oBQeUbKDeKAUHlFlAigFB5RZQYoBRLTMUalGisKIo0e0VoFUNFHtFaAUNFHsY2JhYUK8V4ipixMLChRRYmLEwsKFFFiYsTCwoUUWJixMLCh40WJixMLCh7xXjYmLEwsKJaRigUwY8ljo/9k="
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="filme">
-          <img
-            mat-card-image
-            src="data:image/jpeg;base64,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"
-            alt="filme-1"
-          />
-          <mat-card-content>
-            <p class="descricao">Oi, Alberto.</p>
-            <p class="data-lancamento">12 NOV 2021</p>
-          </mat-card-content>
-        </mat-card>
-
       </section>
     </div>
   </div>

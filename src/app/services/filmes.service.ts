@@ -15,8 +15,27 @@ base_Url = environment.urlBase;
 
   constructor(private httpClient: HttpClient) { }
 
+  getDetails(id:any): Observable<any>{
+    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+  }
+
   getMovies(): Observable<any>{
     return this.httpClient.get(this.base_Url + 'movie/popular?api_key=' + this.apiKey+ '&language=pt-BR')
   }
+
+  getRecomendations(id:any): Observable<any>{
+    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '/recommendations?api_key=' + this.apiKey + '&language=pt-BR')
+  }
+
+  getCredits(id:any): Observable<any>{
+    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '/credits?api_key=' + this.apiKey + '&language=pt-BR')
+  }
+
+  getVideo(id:any): Observable<any>{
+    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '/videos?api_key=' + this.apiKey + '&language=pt-BR')
+  }
+
+
+
 
 }

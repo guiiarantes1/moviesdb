@@ -34,7 +34,7 @@
   </div>
 
   <div class="filmes">
-    <mat-card class="filme" *ngFor="let filme of filmes" routerLink="detalhes">
+    <mat-card class="filme" *ngFor="let filme of filmes" [routerLink]="['detalhes', filme.id]">
       <img
         mat-card-image
         [src]="imgBaseUrl + filme.poster_path"
