@@ -13,14 +13,16 @@ export class FilmesService {
 apiKey = environment.apiKey;
 base_Url = environment.urlBase;
 
+
   constructor(private httpClient: HttpClient) { }
 
   getDetails(id:any): Observable<any>{
     return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+
   }
 
-  getMovies(): Observable<any>{
-    return this.httpClient.get(this.base_Url + 'movie/popular?api_key=' + this.apiKey+ '&language=pt-BR')
+  getMovies(pageNumber:any): Observable<any>{
+    return this.httpClient.get(this.base_Url + 'movie/popular?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
   }
 
   getRecomendations(id:any): Observable<any>{
@@ -35,7 +37,9 @@ base_Url = environment.urlBase;
     return this.httpClient.get(this.base_Url+ '/movie/'+ id + '/videos?api_key=' + this.apiKey + '&language=pt-BR')
   }
 
+ getReleaseDate(id:any):Observable<any>{
+  return this.httpClient.get(this.base_Url+ '/movie/' + id + '/release_dates?api_key=' + this.apiKey)
 
-
+ }
 
 }

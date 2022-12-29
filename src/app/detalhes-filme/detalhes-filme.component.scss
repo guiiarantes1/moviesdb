@@ -6,6 +6,11 @@
     background-color: #0070ad;
     height: 56px;
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+      button{
+        margin-right: 50px;
+      }
 
     p {
       font-family: "Revalia";
@@ -20,6 +25,7 @@
     margin: auto;
     width: 80%;
     margin-top: 72px;
+    height: auto;
 
     .titulo {
       font-weight: 700;
@@ -92,6 +98,22 @@
         width: 55%;
       }
     }
+    .cast {
+      display: grid;
+
+      .nome-cast {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 2px;
+      }
+      .profissao-cast {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 2px;
+      }
+    }
   }
 }
 
@@ -104,21 +126,24 @@
   height: 100%;
 
   .elenco {
+    overflow-x: auto;
+
     h3 {
       font-weight: 700;
       font-size: 28px;
       line-height: 32px;
     }
     .elenco-card {
-      width: 700px;
-      height: 340px;
+      width: 191px;
+      height: 336px;
       padding: 8px;
       gap: 16px;
       align-items: center;
       display: flex;
       flex-direction: column;
       margin-top: 24px;
-      margin-bottom: 102px;
+      margin-bottom: 26px;
+      margin-left: 5px;
       border-radius: 4px;
       margin-right: 16px;
       background: #ffffff;
@@ -151,6 +176,7 @@
     }
   }
   .trailer {
+    margin-top: 64px;
     .titulo-trailer {
       font-weight: 700;
       font-size: 28px;
@@ -170,7 +196,8 @@
   }
 
   .recomendacoes {
-    margin: 0;
+
+    margin-bottom: 50px;
     h3 {
       font-weight: 700;
       font-size: 28px;
@@ -178,45 +205,35 @@
     }
     .recomendados {
       display: flex;
-      margin: 0;
-      .filme {
-        margin: 25px 32px 0px 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        max-width: 176px;
-        box-shadow: none;
-        :hover {
-          cursor: pointer;
-        }
-
-        img {
-          border-radius: 4px;
-          max-width: 176px;
-          height: 264px;
+      overflow-x: auto;
+    }
+    .filme {
+      width: 180px;
+      height: auto;
+      margin-right: 26px;
+      margin-bottom: 10px;
+      box-shadow: none;
+      img {
+        width: 176px;
+        height: 264px;
+        border-radius: 4px;
+        margin: 0;
+      }
+      mat-card-content {
+        margin: 0;
+        .descricao {
+          display: flex;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
           margin: 0;
+
         }
-
-        mat-card-content {
-          margin-bottom: 0;
-
-          .descricao {
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 24px;
-            color: black;
-            margin-bottom: 0;
-            margin-top: 8px;
-          }
-
-          .data-lancamento {
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 24px;
-            color: #646464;
-            margin-top: 0;
-            margin-bottom: 100px;
-          }
+        .data-lancamento {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 24px;
+          color: #646464;
         }
       }
     }

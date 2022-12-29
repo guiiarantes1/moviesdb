@@ -20,6 +20,8 @@ export class DetalhesFilmeComponent implements OnInit {
   videoUrl!: any;
   filmeId:any;
   genres:any;
+  casts!: any[];
+  releaseDate!:any[];
 
 
 
@@ -42,6 +44,7 @@ export class DetalhesFilmeComponent implements OnInit {
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
       console.log(response);
       this.credits = response.cast;
+      this.casts = response.crew;
     });
 
     this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
@@ -49,6 +52,12 @@ export class DetalhesFilmeComponent implements OnInit {
       this.videos = response.results;
       this.updateVideoUrl(this.videos[0].key)
     });
+
+    this.filmesService.getReleaseDate(this.filmeId).subscribe((response: any) => {
+      console.log(response);
+      this.releaseDate = response.results;
+    });
+
 
 
   }
@@ -61,4 +70,13 @@ export class DetalhesFilmeComponent implements OnInit {
     const dangerousVideoUrl = 'https://www.youtube.com/embed/' + key;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(dangerousVideoUrl);
   }
+
+
+  converterHora(value: number): string {
+    let hours = Math.floor(value / 60);
+    let minutes = Math.floor(value % 60);
+    return hours + 'h ' + minutes + 'm';
+  }
+
+
 }

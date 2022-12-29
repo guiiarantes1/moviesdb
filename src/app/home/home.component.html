@@ -10,41 +10,29 @@
     </section>
     <section class="filtros">
       <p>FILTRE POR:</p>
-      <mat-chip-list aria-label="Fish selection" class="lista-filtros">
-        <mat-chip class="filtro">Ação</mat-chip>
-        <mat-chip class="filtro">Aventura</mat-chip>
-        <mat-chip class="filtro">Animação</mat-chip>
-        <mat-chip class="filtro">Comédia</mat-chip>
-        <mat-chip class="filtro">Crime</mat-chip>
-        <mat-chip class="filtro">Documentário</mat-chip>
-        <mat-chip class="filtro">Drama</mat-chip>
-        <mat-chip class="filtro">Família</mat-chip>
-        <mat-chip class="filtro">Fantasia</mat-chip>
-        <mat-chip class="filtro">História</mat-chip>
-        <mat-chip class="filtro">Terror</mat-chip>
-        <mat-chip class="filtro">Música</mat-chip>
-        <mat-chip class="filtro">Mistério</mat-chip>
-        <mat-chip class="filtro">Romance</mat-chip>
-        <mat-chip class="filtro">Ficção científica</mat-chip>
-        <mat-chip class="filtro">Thriller</mat-chip>
-        <mat-chip class="filtro">Guerra</mat-chip>
-        <mat-chip class="filtro">Faroeste</mat-chip>
+      <mat-chip-list aria-label="Fish selection" class="lista-filtros" *ngFor="let filtro of filtros" >
+        <mat-chip [ngClass]="{'filtro': true, 'filtroSelecionado' : filtro===filtroAtual }" (click)="filtrar(filtro)">{{filtro}} <button class="botaoFechar" (click)="filtrar(filtro)" *ngIf="filtro===filtroAtual" matChipRemove aria-label="'remove'">
+          <mat-icon>cancel</mat-icon>
+        </button></mat-chip>
       </mat-chip-list>
     </section>
   </div>
 
   <div class="filmes">
-    <mat-card class="filme" *ngFor="let filme of filmes" [routerLink]="['detalhes', filme.id]">
+    <mat-card class="filme" *ngFor="let filme of filmesFiltrados | paginate: {itemsPerPage: 20, currentPage: p, totalItems: 10000}" [routerLink]="['detalhes', filme.id]" >
       <img
         mat-card-image
         [src]="imgBaseUrl + filme.poster_path"
         [alt]="filme.title"
-
       />
       <mat-card-content>
         <p class="descricao">{{filme.title}}</p>
         <p class="data-lancamento">{{filme.release_date | date: 'dd/MM/yyyy'}}</p>
       </mat-card-content>
     </mat-card>
+
+  </div>
+  <div class="pagination">
+    <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
   </div>
 </div>

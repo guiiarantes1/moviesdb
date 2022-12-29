@@ -13,3 +13,27 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 @include angular-material-theme($my-app-theme);
 
 
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #DDDDDD;
+  border-radius: 100px;
+
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9b9b9b;
+
+/* Handle */
+}
+::-webkit-scrollbar-thumb {
+  background: #ADADAD;
+  border-radius: 100px;
+
+}
+

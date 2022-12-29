@@ -2,6 +2,7 @@
   <div class="header">
     <section class="logo">
       <p>Homem de Ferro Films</p>
+      <button mat-button routerLink="">Voltar</button>
     </section>
 
     <div class="detalhes">
@@ -16,7 +17,7 @@
         </section>
         <section class="informacoes">
           <p>
-            16 anos • {{detalhes.release_date | date : "dd/MM/yyyy"}} (BR) • {{genres}} • 1h 47m
+            16 anos • {{detalhes.release_date | date : "dd/MM/yyyy"}} (BR) • {{genres}} • {{converterHora(detalhes.runtime)}}
           </p>
         </section>
         <section class="avaliacao">
@@ -26,7 +27,7 @@
               #spinner
               color="accent"
               mode="determinate"
-              value="75"
+              value="{{detalhes.vote_average*10}}"
               diameter="80"
             >
             </mat-progress-spinner>
@@ -38,6 +39,30 @@
           <p>{{detalhes.overview}}
           </p>
         </section>
+
+        <section class="cast">
+          <mat-card-content>
+            <p class="nome-cast">Nome ator</p>
+            <p class="profissao-cast">Profissão ator</p>
+          </mat-card-content>
+
+          <mat-card-content>
+            <p class="nome-cast">Nome ator</p>
+            <p class="profissao-cast">Profissão ator</p>
+          </mat-card-content>
+
+          <mat-card-content>
+            <p class="nome-cast">Nome ator</p>
+            <p class="profissao-cast">Profissão ator</p>
+          </mat-card-content>
+
+          <mat-card-content>
+            <p class="nome-cast">Nome ator</p>
+            <p class="profissao-cast">Profissão ator</p>
+          </mat-card-content>
+        </section>
+
+
       </div>
     </div>
   </div>
@@ -66,7 +91,7 @@
       </section>
     </div>
 
-    <div class="recomendacoes">
+    <div class="recomendacoes" *ngIf="recomendacoes">
       <h3>Recomendações</h3>
       <section class="recomendados">
         <mat-card class="filme" *ngFor="let recomendacao of recomendacoes">

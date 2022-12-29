@@ -13,6 +13,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmesService } from './services/filmes.service';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { FilmesService } from './services/filmes.service';
     MatButtonModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    MatIconModule
   ],
   providers: [FilmesService],
   bootstrap: [AppComponent]
