@@ -8,9 +8,9 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
-      button{
-        margin-right: 50px;
-      }
+    button {
+      margin-right: 50px;
+    }
 
     p {
       font-family: "Revalia";
@@ -25,7 +25,6 @@
     margin: auto;
     width: 80%;
     margin-top: 72px;
-    height: auto;
 
     .titulo {
       font-weight: 700;
@@ -95,11 +94,20 @@
         font-size: 16px;
         line-height: 24px;
         letter-spacing: -0.005em;
-        width: 55%;
+        width: 80%;
       }
     }
     .cast {
+      margin-top: 24px;
+      width: 30%;
       display: grid;
+      grid-template-columns: 205px 205px 205px;
+      height: auto;
+
+      mat-card-content {
+        width: 174;
+        margin-right: 33px;
+      }
 
       .nome-cast {
         font-weight: 700;
@@ -196,7 +204,7 @@
   }
 
   .recomendacoes {
-
+    margin-top: 25px;
     margin-bottom: 50px;
     h3 {
       font-weight: 700;
@@ -227,7 +235,6 @@
           font-size: 16px;
           line-height: 24px;
           margin: 0;
-
         }
         .data-lancamento {
           font-weight: 700;
