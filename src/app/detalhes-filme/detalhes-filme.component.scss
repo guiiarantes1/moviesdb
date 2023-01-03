@@ -1,7 +1,8 @@
 .header {
   color: white;
   background-color: #348ac7;
-  height: 660px;
+
+  height: 670px;
   .logo {
     background-color: #0070ad;
     height: 56px;
@@ -13,113 +14,154 @@
     }
 
     p {
-      font-family: "Revalia";
+      display: flex;
+      margin: 18px 0 18px 30px;
       font-weight: 400;
       font-size: 14px;
       line-height: 20px;
-      padding: 18px 0 18px 30px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .detalhes {
     display: flex;
-    margin: auto;
+    margin: 72px auto auto auto;
     width: 80%;
-    margin-top: 72px;
 
-    .titulo {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 38px;
-      letter-spacing: -0.005em;
-    }
-    .informacoes {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 24px;
-    }
-
-    .avaliacao {
+    .imagem {
       display: flex;
-      font-weight: 400;
-      font-size: 16px;
-      align-items: center;
-      width: 15%;
-      color: #14ff00;
-      margin-top: 16px;
+      padding: 0 33px 0 0;
+      width: auto;
+      margin-bottom: 20px;
 
-      p {
-        margin-top: 10px;
-        margin-left: 12px;
-        color: white;
-      }
-
-      .spinner-container {
-        position: relative;
-      }
-      .spinner-background {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-        overflow: hidden;
-        border-color: rgba(103, 58, 183, 0.12);
-        border-radius: 50%;
-        border-style: solid;
-        border-width: 10px;
+      img {
+        width: 383px;
+        height: 574px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 8px;
       }
     }
-
-    img {
-      position: relative;
-      max-width: 383px;
-      max-height: 574px;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-      border-radius: 8px;
-    }
-
     .corpo-header {
-      margin-left: 33px;
-    }
+      margin-left: 10px;
 
-    .sinopse {
-      margin-top: 32px;
-      .titulo-sinopse {
+      .titulo {
         font-weight: 700;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 32px;
+        line-height: 38px;
+        height: auto;
+        width: 95%;
       }
-      p {
+      .informacoes {
+        width: 85%;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        height: auto;
+      }
+
+      .avaliacao {
+        display: flex;
         font-weight: 400;
         font-size: 16px;
-        line-height: 24px;
-        letter-spacing: -0.005em;
-        width: 80%;
-      }
-    }
-    .cast {
-      margin-top: 24px;
-      width: 30%;
-      display: grid;
-      grid-template-columns: 205px 205px 205px;
-      height: auto;
+        align-items: center;
 
-      mat-card-content {
-        width: 174;
-        margin-right: 33px;
+        margin-top: 16px;
+        height: auto;
+
+        p {
+          margin-top: 10px;
+          margin-left: 12px;
+          color: white;
+        }
+
+        .spinner-container-bom {
+          position: relative;
+          height: auto;
+          color: #14ff00;
+          ::ng-deep .mat-progress-spinner circle,
+          .mat-spinner circle {
+            stroke: #14ff00;
+          }
+        }
+
+        .spinner-container-medio {
+          position: relative;
+          height: auto;
+          color: #ecd500;
+          ::ng-deep .mat-progress-spinner circle,
+          .mat-spinner circle {
+            stroke: #ecd500;
+          }
+        }
+
+        .spinner-container-ruim {
+          position: relative;
+          height: auto;
+          color: #db0000;
+          ::ng-deep .mat-progress-spinner circle,
+          .mat-spinner circle {
+            stroke: #db0000;
+          }
+        }
+
+        .spinner-background {
+          position: absolute;
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          overflow: hidden;
+          border-color: rgba(103, 58, 183, 0.12);
+          border-radius: 50%;
+          border-style: solid;
+          border-width: 10px;
+        }
       }
 
-      .nome-cast {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 24px;
-        margin: 2px;
+      .sinopse {
+        width: 60%;
+        margin-top: 32px;
+        height: auto;
+        .titulo-sinopse {
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 24px;
+        }
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.005em;
+        }
       }
-      .profissao-cast {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        margin: 2px;
+      .cast {
+        margin-top: 24px;
+        width: 50%;
+
+        display: grid;
+        grid-template-columns:
+          minmax(160px, max-content)
+          repeat(auto-fill, 160px);
+        height: auto;
+
+        mat-card-content {
+          width: 174;
+          margin-right: 33px;
+        }
+
+        .nome-cast {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          margin: 2px;
+        }
+        .profissao-cast {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          margin: 2px;
+        }
       }
     }
   }
@@ -128,7 +170,7 @@
 .body {
   display: flex;
   flex-direction: column;
-  padding-top: 150px;
+  padding-top: 75px;
   width: 80%;
   margin: auto;
   height: 100%;
@@ -185,6 +227,8 @@
   }
   .trailer {
     margin-top: 64px;
+    height: 60vh;
+
     .titulo-trailer {
       font-weight: 700;
       font-size: 28px;
@@ -192,13 +236,16 @@
     }
     .video-trailer {
       display: flex;
-      margin: 24px 0 64px 0;
+      margin-top: 24px;
+      margin: auto;
+      max-width: 900px;
+      height: 90%;
 
       .trailer-filme {
         border: none;
-        width: 907px;
-        height: 510px;
         margin: auto;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -244,5 +291,46 @@
         }
       }
     }
+  }
+}
+
+// media responsivo //
+
+@media (max-width: 700px) {
+  .header {
+    height: auto;
+  }
+  .detalhes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px !important;
+    .imagem {
+      justify-content: center;
+      margin: auto;
+      img {
+        width: 300px !important;
+        height: 400px !important;
+      }
+    }
+  }
+
+  .corpo-header {
+    .sinopse {
+      width: 100% !important;
+    }
+  }
+  .trailer {
+    width: auto !important;
+    height: auto !important;
+    .trailer-filme {
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+}
+
+@media (max-width: 1750px) {
+  .header {
+    height: auto;
   }
 }

@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
 
     });
     this.filtroAtual = null;
+
+
+
   }
 
   changePage(event:any){

@@ -17,11 +17,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatIconModule} from '@angular/material/icon';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetalhesFilmeComponent
+    DetalhesFilmeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatPaginatorModule,
     NgxPaginationModule,
-    MatIconModule
+    MatIconModule,
+
   ],
   providers: [FilmesService],
   bootstrap: [AppComponent]

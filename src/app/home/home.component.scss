@@ -7,6 +7,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  margin: auto;
 
   .logo {
     background-color: #0070ad;
@@ -37,45 +38,51 @@
   }
 
   .filtros {
-    margin-top: 40px;
-    margin-bottom: 84px;
-    width: 56%;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto 84px auto;
+    width: 100%;
+    height: auto;
 
     p {
       text-align: center;
       font-size: 14px;
       line-height: 20px;
     }
+    .chips {
+      display: flex !important;
+      justify-content: center;
+      height: auto;
+      margin: auto;
+      width: 50%;
+      flex-wrap: wrap;
 
-    .lista-filtros {
-      display: inline-flex;
-      margin: 12px;
 
-      .filtro {
-        border-radius: 4px;
-        font-size: 16px;
-        line-height: 24px;
-        background-color: white;
-        justify-content: center;
+      .lista-filtros {
         display: flex;
-        margin: auto;
-        &:hover {
-          cursor: pointer;
-        }
-      }
+        margin: 12px;
+        height: auto;
 
-      .filtroSelecionado {
-        background-color: #3c1b4e;
-        color: white;
-        &:hover {
-          cursor: pointer;
+        .filtro {
+          border-radius: 4px;
+          font-size: 16px;
+          line-height: 24px;
+          background-color: white;
+          text-align: center;
+          margin: auto;
+          &:hover {
+            cursor: pointer;
+          }
         }
 
-        .botaoFechar {
+        .filtroSelecionado {
+          background-color: #3c1b4e;
           color: white;
+          &:hover {
+            cursor: pointer;
+          }
+
+          .botaoFechar {
+            color: white;
+          }
         }
       }
     }
@@ -85,10 +92,13 @@
 .filmes {
   display: grid;
   justify-content: center;
-  grid-template-columns: 208px 208px 208px 208px 208px;
-  max-width: 85%;
+  grid-template-columns:
+    minmax(180px, max-content)
+    repeat(auto-fill, 200px);
+  margin: auto !important;
+
+  max-width: 1000px;
   height: auto;
-  margin: auto;
   margin-bottom: 25px;
 
   .filme {
@@ -134,9 +144,19 @@
 
 .pagination {
   margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
+  padding-bottom: 5px;
+  text-align: center;
+
+  pagination-controls {
+    text-align: center;
+    margin: auto;
+  }
 }
 
+@media (max-width: 700px) {
+  .chips{
+    display: flex !important;
+    width: 90% !important;
+    justify-content: initial !important;
+  }
+}

@@ -18,7 +18,6 @@ base_Url = environment.urlBase;
 
   getDetails(id:any): Observable<any>{
     return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
-
   }
 
   getMovies(pageNumber:any): Observable<any>{
@@ -39,7 +38,9 @@ base_Url = environment.urlBase;
 
  getReleaseDate(id:any):Observable<any>{
   return this.httpClient.get(this.base_Url+ '/movie/' + id + '/release_dates?api_key=' + this.apiKey)
-
  }
 
+ getGenres():Observable<any>{
+  return this.httpClient.get(this.base_Url + '/genre/movie/list?api_key=' + this.apiKey + '&language=pt-BR')
+ }
 }

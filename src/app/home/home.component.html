@@ -10,29 +10,61 @@
     </section>
     <section class="filtros">
       <p>FILTRE POR:</p>
-      <mat-chip-list aria-label="Fish selection" class="lista-filtros" *ngFor="let filtro of filtros" >
-        <mat-chip [ngClass]="{'filtro': true, 'filtroSelecionado' : filtro===filtroAtual }" (click)="filtrar(filtro)">{{filtro}} <button class="botaoFechar" (click)="filtrar(filtro)" *ngIf="filtro===filtroAtual" matChipRemove aria-label="'remove'">
-          <mat-icon>cancel</mat-icon>
-        </button></mat-chip>
-      </mat-chip-list>
+      <div class="chips">
+        <mat-chip-list
+          aria-label="Fish selection"
+          class="lista-filtros"
+          *ngFor="let filtro of filtros"
+        >
+          <mat-chip
+            [ngClass]="{
+              filtro: true,
+              filtroSelecionado: filtro === filtroAtual
+            }"
+            (click)="filtrar(filtro)"
+            >{{ filtro }}
+            <button
+              class="botaoFechar"
+              (click)="filtrar(filtro)"
+              *ngIf="filtro === filtroAtual"
+              matChipRemove
+              aria-label="'remove'"
+            >
+              <mat-icon>cancel</mat-icon>
+            </button></mat-chip
+          >
+        </mat-chip-list>
+      </div>
     </section>
   </div>
 
   <div class="filmes">
-    <mat-card class="filme" *ngFor="let filme of filmesFiltrados | paginate: {itemsPerPage: 20, currentPage: p, totalItems: 10000}" [routerLink]="['detalhes', filme.id]" >
+    <mat-card
+      class="filme"
+      *ngFor="
+        let filme of filmesFiltrados
+          | paginate : { itemsPerPage: 20, currentPage: p, totalItems: 10000 }
+      "
+      [routerLink]="['detalhes', filme.id]"
+    >
       <img
         mat-card-image
         [src]="imgBaseUrl + filme.poster_path"
         [alt]="filme.title"
       />
       <mat-card-content>
-        <p class="descricao">{{filme.title}}</p>
-        <p class="data-lancamento">{{filme.release_date | date: 'dd/MM/yyyy'}}</p>
+        <p class="descricao">{{ filme.title }}</p>
+        <p class="data-lancamento">
+          {{ filme.release_date | date : "dd/MM/yyyy" }}
+        </p>
       </mat-card-content>
     </mat-card>
-
   </div>
   <div class="pagination">
-    <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
+    <pagination-controls
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="changePage($event)"
+    ></pagination-controls>
   </div>
 </div>
