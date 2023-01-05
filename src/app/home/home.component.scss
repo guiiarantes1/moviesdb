@@ -42,45 +42,53 @@
     width: 100%;
     height: auto;
 
-    p {
+    .filtre {
       text-align: center;
-      font-size: 14px;
-      line-height: 20px;
+      font-weight: 700;
+      font-size: 16px;
     }
     .chips {
       display: flex !important;
       justify-content: center;
       height: auto;
       margin: auto;
-      width: 50%;
+      width: 54%;
       flex-wrap: wrap;
-
 
       .lista-filtros {
         display: flex;
-        margin: 12px;
+        margin: 0 12px 12px 0;
         height: auto;
+        border: none;
 
         .filtro {
+          margin-top: -8px;
+          width: auto;
+          height: 40px;
           border-radius: 4px;
-          font-size: 16px;
-          line-height: 24px;
           background-color: white;
           text-align: center;
-          margin: auto;
+          font-weight: 700;
+          font-size: 16px;
+
           &:hover {
             cursor: pointer;
           }
         }
 
         .filtroSelecionado {
+          margin-top: -8px;
+          border-radius: 4px;
+          width: auto;
+          height: 40px;
           background-color: #3c1b4e;
           color: white;
           &:hover {
             cursor: pointer;
           }
 
-          .botaoFechar {
+          mat-icon {
+            margin-top: -2px;
             color: white;
           }
         }
@@ -154,9 +162,31 @@
 }
 
 @media (max-width: 700px) {
-  .chips{
+  .chips {
     display: flex !important;
     width: 90% !important;
     justify-content: initial !important;
+  }
+
+  @media (max-width: 365px) {
+
+      .texto-titulo{
+        font-size: 43px !important;
+        margin: 85px auto auto auto !important;
+        height: auto !important;
+        text-align: center;
+        width: 70% !important;
+      }
+
+    .filmes {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    }
+
+    .filme{
+      margin: 20px auto auto auto !important;
+    }
   }
 }

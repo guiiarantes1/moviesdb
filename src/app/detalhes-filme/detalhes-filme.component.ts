@@ -29,6 +29,7 @@ export class DetalhesFilmeComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private route: ActivatedRoute
   ) {
+
     this.route.params.subscribe((params) => (this.filmeId = params['id']));
   }
 
@@ -43,7 +44,7 @@ export class DetalhesFilmeComponent implements OnInit {
         this.nota = 'spinner-container-bom';
       } else if (
         this.detalhes.vote_average >= 4 &&
-        this.detalhes.vote_average < 7
+        this.detalhes.vote_average <7
       ) {
         this.nota = 'spinner-container-medio';
       } else {
@@ -55,6 +56,8 @@ export class DetalhesFilmeComponent implements OnInit {
       .getRecomendations(this.filmeId)
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
+        console.log(this.recomendacoes);
+
       });
 
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
@@ -93,4 +96,5 @@ export class DetalhesFilmeComponent implements OnInit {
     let minutes = Math.floor(value % 60);
     return hours + 'h ' + minutes + 'm';
   }
+
 }

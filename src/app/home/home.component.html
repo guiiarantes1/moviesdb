@@ -9,31 +9,24 @@
       </p>
     </section>
     <section class="filtros">
-      <p>FILTRE POR:</p>
+      <p class="filtre">FILTRE POR:</p>
       <div class="chips">
-        <mat-chip-list
+        <mat-button-toggle-group
           aria-label="Fish selection"
           class="lista-filtros"
           *ngFor="let filtro of filtros"
+          multiple
         >
-          <mat-chip
+          <mat-button-toggle
             [ngClass]="{
               filtro: true,
               filtroSelecionado: filtro === filtroAtual
             }"
             (click)="filtrar(filtro)"
             >{{ filtro }}
-            <button
-              class="botaoFechar"
-              (click)="filtrar(filtro)"
-              *ngIf="filtro === filtroAtual"
-              matChipRemove
-              aria-label="'remove'"
-            >
-              <mat-icon>cancel</mat-icon>
-            </button></mat-chip
-          >
-        </mat-chip-list>
+            <mat-icon *ngIf="filtro === filtroAtual">cancel</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
       </div>
     </section>
   </div>

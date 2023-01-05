@@ -16,6 +16,7 @@ import { FilmesService } from './services/filmes.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatPaginatorModule,
     NgxPaginationModule,
     MatIconModule,
+    MatButtonToggleModule
 
   ],
   providers: [FilmesService],
