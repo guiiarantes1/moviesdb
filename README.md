@@ -5,9 +5,11 @@ Homem de Ferro Films é um projeto para visualizar os filmes populares da semana
 
 - Conferir a avaliação geral dos usuários
 - Filtrar os filmes pelo gênero desejado
-- Ver o elenco do filme
+- Ver o a sinopse, elenco, produtores e diretores, entre outros detalhes do filme
 - Assistir o trailer
 - Caso queira, selecionar um outro filme recomendado baseado no filme atual
+
+
 ## Rodar o projeto localmente
 
 Clone o projeto
@@ -37,12 +39,12 @@ Inicie o servidor
 
 ## 🔨 Status do projeto
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
 ## ✔️ Tecnologias Usadas
 
 - ``Angular v14.0.2``
-- ``HTML``
-- ``SASS``
-- ``Bootstrap v5.3.0``
+- ``HTML 5``
+- ``SASS v1.57.1``
 
 
 ## Autor
