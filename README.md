@@ -1,27 +1,64 @@
-# MoviesProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+# Homem de Ferro Films
 
-## Development server
+Homem de Ferro Films é um projeto para visualizar os filmes populares da semana, além disso também poderá:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Conferir a avaliação geral dos usuários
+- Filtrar os filmes pelo gênero desejado
+- Ver o elenco do filme
+- Assistir o trailer
+- Caso queira, selecionar um outro filme recomendado baseado no filme atual
+## Rodar o projeto localmente
 
-## Code scaffolding
+Clone o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+  git clone https://github.com/guiiarantes1/moviesdb.git
+```
 
-## Build
+Vá até o diretório do projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+  cd my-project
+```
 
-## Running unit tests
+Instale as dependências
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  npm install
+```
 
-## Running end-to-end tests
+Inicie o servidor
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+  npm run start
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🔨 Status do projeto
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+## ✔️ Tecnologias Usadas
+
+- ``Angular v14.0.2``
+- ``HTML``
+- ``SASS``
+- ``Bootstrap v5.3.0``
+
+
+## Autor
+
+@Guilherme.Arantes
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/guiiarantes1/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilhermearantes17/)
+
+## Screenshots
+
+![App Screenshot](https://user-images.githubusercontent.com/81725311/211008865-391898d1-4e98-42f4-8c0b-205b88e5c65e.png)
+
+![App Screenshot](https://user-images.githubusercontent.com/81725311/211008665-8075f871-d321-461b-8ce5-339587c23c4d.png) 
+## Feedback
+
+Se você tiver algum comentário, entre em contato conosco em guii_arantes@hotmail.com
+

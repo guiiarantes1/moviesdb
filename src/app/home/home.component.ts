@@ -60,24 +60,29 @@ export class HomeComponent implements OnInit {
       console.log(response);
       this.filmes = response.results;
       this.filmesFiltrados = this.filmes;
-      if (this.filtroAtual !== null) {
+      if (this.filtroAtual != null) {
         this.filmesFiltrados = this.filmes.filter((filme) =>
           filme.genre_ids.includes(GENRES[this.filtroAtual || ''])
         );
       }
+      console.log(this.filtroAtual);
     });
   }
-
   filtrar(filtro: string) {
-    if (this.filtroAtual === null) {
+    if (this.filtroAtual != filtro) {
       this.filmesFiltrados = this.filmes.filter((filme) =>
         filme.genre_ids.includes(GENRES[filtro])
       );
-      console.log(filtro);
+      console.log('adicionou' + filtro);
       this.filtroAtual = filtro;
+      console.log(this.filtroAtual);
     } else {
-      this.filtroAtual = null;
-      this.filmesFiltrados = this.filmes;
-    }
+    this.filtroAtual = "";
+    this.filmesFiltrados = this.filmes;
+    console.log('removeu' + filtro);
+      console.log(this.filtroAtual)
   }
+
+  }
+
 }

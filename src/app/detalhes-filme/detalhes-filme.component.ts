@@ -23,6 +23,7 @@ export class DetalhesFilmeComponent implements OnInit {
   releaseDate!: string;
   classification = '';
   nota!: string;
+  crew!: any[];
 
   constructor(
     private filmesService: FilmesService,
