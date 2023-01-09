@@ -16,8 +16,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-     &:hover{
-      cursor: pointer;;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
@@ -39,6 +39,7 @@
       margin: 20px auto 40px auto;
 
       img {
+        width: 70% !important;
         display: flex;
         border-radius: 12px;
       }
@@ -90,7 +91,7 @@
         font-weight: 500;
         font-size: 21px;
       }
-      p{
+      p {
         font-size: 16px;
         line-height: 1.8em;
         margin-bottom: 30px;
@@ -139,4 +140,52 @@
       }
     }
   }
+}
+
+@media (max-width: 1300px) {
+  .body {
+    width: 90%;
+
+    .informacoes {
+
+      .imagem {
+
+        img {
+          width: 80% !important;
+          display: flex;
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .body{
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+.header{
+  margin: 0 !important;
+}
+.body{
+  margin: 0;
+  display: inline;
+
+.informacoes{
+  border-radius: 0 !important;
+  width: auto !important;
+  .imagem{
+    margin:auto !important;
+
+    width: 70% !important;
+
+    img{
+      margin-top: 10px;
+      width: 80% !important;
+    }
+  }
+}
+}
 }

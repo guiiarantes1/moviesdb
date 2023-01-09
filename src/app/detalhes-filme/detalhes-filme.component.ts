@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { FilmesService } from './../services/filmes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-detalhes-filme',
   templateUrl: './detalhes-filme.component.html',
