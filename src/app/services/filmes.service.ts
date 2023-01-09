@@ -43,4 +43,17 @@ base_Url = environment.urlBase;
  getGenres():Observable<any>{
   return this.httpClient.get(this.base_Url + '/genre/movie/list?api_key=' + this.apiKey + '&language=pt-BR')
  }
+
+ getProfile(id:any):Observable<any>{
+  return this.httpClient.get(this.base_Url + 'person/'+id+'?api_key=' + this.apiKey + '&language=pt-BR')
+ }
+
+ getProfileMovies(id:any):Observable<any>{
+  return this.httpClient.get(this.base_Url +'person/'+ id + '/combined_credits?api_key=' + this.apiKey + '&language=pt-BR')
+
+ }
+ getProfileExternalIds(id:any):Observable<any>{
+  return this.httpClient.get(this.base_Url +'person/'+ id + '/external_ids?api_key=' + this.apiKey + '&language=pt-BR')
+ }
+
 }

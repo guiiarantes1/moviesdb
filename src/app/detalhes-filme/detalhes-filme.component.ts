@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { FilmesService } from './../services/filmes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalhes-filme',
@@ -24,14 +24,17 @@ export class DetalhesFilmeComponent implements OnInit {
   classification = '';
   nota!: string;
   crew!: any[];
+  recomendacaoId:any;
+
 
   constructor(
     private filmesService: FilmesService,
     private sanitizer: DomSanitizer,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
+    this.route.params.subscribe((params) => (this.filmeId = params['id'], this.recomendacaoId = params['id']));
 
-    this.route.params.subscribe((params) => (this.filmeId = params['id']));
   }
 
   ngOnInit(): void {
@@ -59,11 +62,13 @@ export class DetalhesFilmeComponent implements OnInit {
         this.recomendacoes = response.results;
         console.log(this.recomendacoes);
 
+
       });
 
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
+      console.log(this.credits)
     });
 
     this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
@@ -97,5 +102,9 @@ export class DetalhesFilmeComponent implements OnInit {
     let minutes = Math.floor(value % 60);
     return hours + 'h ' + minutes + 'm';
   }
+  voltar(){
+    window.history.back();
+}
+
 
 }

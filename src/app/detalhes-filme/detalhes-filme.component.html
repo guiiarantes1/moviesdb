@@ -2,7 +2,7 @@
   <div class="header">
     <section class="logo">
       <p routerLink="">Homem de Ferro Films</p>
-      <button mat-button routerLink="">Voltar</button>
+      <button mat-button (click)="voltar()">Voltar</button>
     </section>
 
     <div class="detalhes">
@@ -74,7 +74,7 @@
       <h3>Elenco original</h3>
 
       <section class="elenco-grid">
-        <mat-card class="elenco-card" *ngFor="let credit of credits">
+        <mat-card class="elenco-card" *ngFor="let credit of credits"  [routerLink]="['', 'profile', credit.id]">
           <img
             mat-card-image
             id="imagem-elenco"

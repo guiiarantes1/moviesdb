@@ -73,16 +73,13 @@ export class HomeComponent implements OnInit {
       this.filmesFiltrados = this.filmes.filter((filme) =>
         filme.genre_ids.includes(GENRES[filtro])
       );
-      console.log('adicionou' + filtro);
-      this.filtroAtual = filtro;
+       this.filtroAtual = filtro;
       console.log(this.filtroAtual);
     } else {
-    this.filtroAtual = "";
-    this.filmesFiltrados = this.filmes;
-    console.log('removeu' + filtro);
-      console.log(this.filtroAtual)
-  }
+      this.filtroAtual = '';
+      this.filmesFiltrados = this.filmes;
 
+      console.log(this.filtroAtual);
+    }
   }
-
 }

@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="header">
+    <p routerLink="">Homem de Ferro Films</p>
+    <button mat-button (click)="voltar()">Voltar</button>
+  </div>
+
+  <div class="body">
+    <div class="informacoes">
+      <section class="imagem">
+        <img [src]="imgBaseUrl + profile.profile_path" />
+      </section>
+
+      <section class="detalhesProfile">
+        <section class="informacoesProfile">
+          <section class="socialMedia">
+          <a class="facebook" [href]="facebook_id + externalIds.facebook_id"><span class="facebook-logo"></span> </a>
+        </section>
+          <h3>Informações Pessoais</h3>
+
+          <h4>Conhecido(a) por</h4>
+          <p>{{ profile.known_for_department }}</p>
+          <h4>Gênero</h4>
+          <p>{{ profile.gender }}</p>
+          <h4>Nascimento</h4>
+          <p>{{ profile.birthday | date : "dd/MM/yyyy" }}</p>
+          <h4 *ngIf="profile.deathday">Falecimento †</h4>
+          <p>{{profile.deathday | date : "dd/MM/yyyy"}}</p>
+          <h4>Local de Nascimento (em inglês)</h4>
+          <p>{{ profile.place_of_birth }}</p>
+
+      </section>
+      </section>
+    </div>
+
+    <div class="profile">
+      <section class="nomeProfile">
+        <h2>{{ profile.name }}</h2>
+      </section>
+      <section class="biografia">
+        <h3>Biografia</h3>
+        <p>{{ profile.biography }}</p>
+      </section>
+      <section class="filmesProfile">
+        <p>Conhecido (a) por:</p>
+        <section class="profileMovies">
+          <mat-card
+            class="filme"
+            *ngFor="let profileMovie of profileMovies "
+            [routerLink]="['', 'detalhes', profileMovie.id]"
+          >
+            <img
+              mat-card-image
+              [src]="imgBaseUrl + profileMovie.poster_path"
+              onerror="this.src='https://www.escapeauthority.com/wp-content/uploads/2116/11/No-image-found.jpg'"
+            />
+            <mat-card-content>
+              <p class="descricao">
+                {{ profileMovie.title }}{{ profileMovie.name }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </section>
+      </section>
+
+      <section class="atuacao">
+        <p>Atuação</p>
+
+      </section>
+    </div>
+  </div>
+</div>

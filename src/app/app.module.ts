@@ -17,6 +17,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ProfileComponent } from './profile/profile.component';
+import {MatTableModule} from '@angular/material/table';
+import { OrderModule } from 'ngx-order-pipe';
+
 
 
 @NgModule({
@@ -24,6 +28,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AppComponent,
     HomeComponent,
     DetalhesFilmeComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -39,7 +44,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatPaginatorModule,
     NgxPaginationModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableModule,
+
+
 
   ],
   providers: [FilmesService],

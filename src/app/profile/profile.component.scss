@@ -1,0 +1,142 @@
+.header {
+  background-color: #0070ad;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  button {
+    margin-right: 50px;
+  }
+
+  p {
+    display: flex;
+    margin: 18px 0 18px 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+     &:hover{
+      cursor: pointer;;
+    }
+  }
+}
+
+.body {
+  display: flex;
+  width: 80%;
+  margin: 0 auto auto auto;
+  //background-color: aquamarine;
+
+  .informacoes {
+    border-radius: 5px;
+    background-color: #348ac7;
+    color: white;
+    width: 30%;
+    .imagem {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 40px auto;
+
+      img {
+        display: flex;
+        border-radius: 12px;
+      }
+    }
+
+    .detalhesProfile {
+      padding: 20px;
+      justify-content: center;
+
+      .informacoesProfile {
+        .socialmedia {
+          .facebook {
+            background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/social/facebook-71155d1cd369c47ce8456477833a92c324fa01e6d628cb6ece19cedea3c1c480.svg") !important;
+            .facebook-logo {
+            }
+          }
+        }
+        h3 {
+          font-weight: 700;
+          font-size: 20px;
+        }
+        h4 {
+          font-weight: 700;
+          font-size: 16px;
+        }
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          margin-top: -10px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .profile {
+    //background-color: aqua;
+    padding: 30px;
+    width: 70%;
+    .nomeProfile {
+      h2 {
+        font-weight: 700;
+        font-size: 35px;
+        margin-bottom: 50px;
+      }
+    }
+    .biografia {
+      h3 {
+        font-weight: 500;
+        font-size: 21px;
+      }
+      p{
+        font-size: 16px;
+        line-height: 1.8em;
+        margin-bottom: 30px;
+      }
+    }
+    .filmesProfile {
+      margin: 20px auto 20px auto;
+      p {
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+    .profileMovies {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      .filme {
+        padding: 0;
+        width: 180px;
+        height: auto;
+        justify-content: center;
+        margin-right: 26px;
+        box-shadow: none;
+        & :hover {
+          cursor: pointer;
+        }
+        img {
+          width: 130px;
+          height: 195px;
+          border-radius: 8px;
+          margin: 0;
+        }
+        mat-card-content {
+          margin: 0 0 10px 0;
+          .descricao {
+          }
+        }
+      }
+    }
+    .atuacao {
+      margin-top: 30px;
+      p {
+        font-weight: 500;
+        font-size: 21px;
+      }
+    }
+  }
+}
