@@ -1,0 +1,120 @@
+.header {
+  background-color: #0070ad;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  button {
+    margin-right: 50px;
+  }
+
+  p {
+    display: flex;
+    margin: 18px 0 18px 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.search {
+  margin-top: 20px;
+  display: flex;
+  margin-bottom: 50px;
+
+  .example-form {
+    display: flex;
+    width: 40%;
+    margin: auto;
+
+    .example-full-width {
+      width: 100%;
+      height: 52px;
+      text-align: center;
+      background-color: #348ac7;
+      color: white;
+
+      border-radius: 15px;
+
+      input {
+        color: white;
+        width: 88%;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      mat-label {
+        font-size: 16px;
+        display: inline-block;
+        color: white;
+      }
+      .button {
+        margin-top: -11px !important;
+        color: #348ac7;
+        width: 10%;
+        height: 40px;
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        display: inline-block;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.body {
+  .conteudoSearch {
+    width: 50%;
+    margin: auto;
+
+    .filme {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      margin-bottom: 40px;
+      border-radius: 5px;
+      box-shadow: 0 5px 8px rgb(0 0 0 / 10%);
+      border: 1px solid rgba(var(--lightGrey), 1);
+      &:hover {
+        cursor: pointer;
+      }
+
+      img {
+        margin: 0;
+        width: auto;
+        height: 195px;
+        border-radius: 5px;
+      }
+      mat-card-content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 6px;
+        margin-left: 10px;
+        .titulo {
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .dataLancamento {
+          color: gray;
+          font-weight: 500;
+        }
+        .sinopse {
+          height: 120px;
+          display: flex;
+          overflow-y: hidden;
+          overflow-x: hidden;
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

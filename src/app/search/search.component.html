@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="header">
+    <p routerLink="">Homem de Ferro Films</p>
+    <button mat-button (click)="voltar()">Voltar</button>
+  </div>
+
+  <div class="search">
+    <form class="example-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <mat-form-field class="example-full-width">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput type="text" formControlName="filtro" />
+        <button class="button" type="submit"><mat-icon>search</mat-icon></button>
+      </mat-form-field>
+
+    </form>
+  </div>
+
+  <div class="body">
+    <div class="conteudoSearch">
+      <mat-card
+        class="filme"
+        [routerLink]="['', 'detalhes', conteudoSearch.id]"
+        *ngFor="let conteudoSearch of conteudosSearch"
+      >
+        <img
+          mat-card-image
+          [src]="imgBaseUrl + conteudoSearch.poster_path"
+          onerror="this.src='https://www.escapeauthority.com/wp-content/uploads/2116/11/No-image-found.jpg'"
+        />
+        <mat-card-content>
+          <p class="titulo">
+            {{ conteudoSearch.title || conteudoSearch.name }}
+          </p>
+          <p class="dataLancamento">
+            {{
+              conteudoSearch.release_date || conteudoSearch.first_air_date
+                | date : "dd/MM/yyyy"
+            }}
+          </p>
+          <p class="sinopse">{{ conteudoSearch.overview }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

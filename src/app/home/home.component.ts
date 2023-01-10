@@ -4,6 +4,7 @@ import { FilmesService } from './../services/filmes.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -39,10 +40,22 @@ export class HomeComponent implements OnInit {
   imgBaseUrl = environment.urlImgBase;
   filtroAtual!: string | null;
 
+  query: any;
+  filtrado:any;
+
+   checkoutForm = this.formBuilder.group({
+     filtro: '',
+   });
+
+   pageNumber: any = 1;
+   conteudosSearch!: any[];
+
+
   constructor(
     private filmesService: FilmesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit(): void {
@@ -81,5 +94,13 @@ export class HomeComponent implements OnInit {
 
       console.log(this.filtroAtual);
     }
+  }
+
+  onSubmit() {
+    this.query = this.checkoutForm.value.filtro
+    console.log(this.query );
+
+    this.router.navigate(['','search', this.query]).then(nav => {
+      window.location.reload();});
   }
 }

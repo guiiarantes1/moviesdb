@@ -20,6 +20,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ProfileComponent } from './profile/profile.component';
 import {MatTableModule} from '@angular/material/table';
 import { OrderModule } from 'ngx-order-pipe';
+import { SearchComponent } from './search/search.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+
 
 
 
@@ -29,6 +33,7 @@ import { OrderModule } from 'ngx-order-pipe';
     HomeComponent,
     DetalhesFilmeComponent,
     ProfileComponent,
+    SearchComponent,
 
   ],
   imports: [
@@ -46,8 +51,9 @@ import { OrderModule } from 'ngx-order-pipe';
     MatIconModule,
     MatButtonToggleModule,
     MatTableModule,
-
-
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [FilmesService],
