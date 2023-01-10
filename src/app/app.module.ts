@@ -23,6 +23,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { SearchComponent } from './search/search.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { DetalhesSerieComponent } from './detalhes-serie/detalhes-serie.component';
 
 
 
@@ -34,6 +35,7 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
     DetalhesFilmeComponent,
     ProfileComponent,
     SearchComponent,
+    DetalhesSerieComponent,
 
   ],
   imports: [

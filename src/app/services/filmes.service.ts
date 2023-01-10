@@ -63,5 +63,43 @@ base_Url = environment.urlBase;
  getSearch(filtro:any, pageNumber:any):Observable<any>{
   return this.httpClient.get(this.base_Url + '/search/multi?api_key=' + this.apiKey + '&language=pt-BR&query=' + filtro + '&page='+pageNumber+'&include_adult=false')
 }
+/////////////// SERIES ///////////
+
+getDetailsSerie(id:any): Observable<any>{
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+  //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+  //https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
+}
+
+getSerie(pageNumber:any): Observable<any>{
+  return this.httpClient.get(this.base_Url + '/trending/all/week?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
+}
+
+getRecomendationsSerie(id:any): Observable<any>{
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '/recommendations?api_key=' + this.apiKey + '&language=pt-BR')
+}
+
+getCreditsSerie(id:any): Observable<any>{
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '/credits?api_key=' + this.apiKey + '&language=pt-BR')
+}
+
+getVideoSerie(id:any): Observable<any>{
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '/videos?api_key=' + this.apiKey + '&language=pt-BR')
+}
+
+getReleaseDateSerie(id:any):Observable<any>{
+return this.httpClient.get(this.base_Url+ '/tv/' + id + '/content_ratings?api_key=' + this.apiKey)
+}
+
+getGenresSerie():Observable<any>{
+return this.httpClient.get(this.base_Url + '/genre/tv/list?api_key=' + this.apiKey + '&language=pt-BR')
+}
+
 
 }
+
+
+
+
+
+

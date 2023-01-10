@@ -12,14 +12,14 @@
       <div class="corpo-header">
         <section class="titulo">
           <p>
-            {{ detalhes.title }} ({{ detalhes.release_date | date : "yyyy" }})
+            {{ detalhes.name }} ({{ detalhes.first_air_date | date : "yyyy" }})
           </p>
         </section>
         <section class="informacoes">
           <p>
             {{ classification }} •
             {{ detalhes.release_date | date : "dd/MM/yyyy" }} (BR) •
-            {{ genres }} • {{ converterHora(detalhes.runtime) }}
+            {{ genres }}
           </p>
         </section>
         <section class="avaliacao">
@@ -106,9 +106,9 @@
             [alt]="recomendacao.title"
           />
           <mat-card-content>
-            <p class="descricao">{{ recomendacao.title }}</p>
+            <p class="descricao">{{ recomendacao.name }}</p>
             <p class="data-lancamento">
-              {{ recomendacao.release_date | date : "dd/MM/yyyy" }}
+              {{ recomendacao.first_air_date | date : "dd/MM/yyyy" }}
             </p>
           </mat-card-content>
         </mat-card>

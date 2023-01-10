@@ -49,7 +49,7 @@
         let filme of filmesFiltrados
           | paginate : { itemsPerPage: 20, currentPage: p, totalItems: 10000 }
       "
-      [routerLink]="['detalhes', filme.id]"
+     (click)="goToShow(filme.media_type,filme.id)"
     >
       <img
         mat-card-image

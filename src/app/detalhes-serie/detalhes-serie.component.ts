@@ -1,16 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { environment } from 'src/environments/environment';
-import { FilmesService } from './../services/filmes.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { FilmesService } from '../services/filmes.service';
 
 @Component({
-  selector: 'app-detalhes-filme',
-  templateUrl: './detalhes-filme.component.html',
-  styleUrls: ['./detalhes-filme.component.scss'],
+  selector: 'app-detalhes-serie',
+  templateUrl: './detalhes-serie.component.html',
+  styleUrls: ['./detalhes-serie.component.scss']
 })
-export class DetalhesFilmeComponent implements OnInit {
+export class DetalhesSerieComponent implements OnInit {
   recomendacoes!: any[];
   credits!: any[];
   videos!: any[];
@@ -36,7 +35,7 @@ export class DetalhesFilmeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filmesService.getDetails(this.filmeId).subscribe((response: any) => {
+    this.filmesService.getDetailsSerie(this.filmeId).subscribe((response: any) => {
       this.detalhes = response;
       this.genres = this.detalhes.genres
         .map((genre: any) => genre.name)
@@ -55,29 +54,29 @@ export class DetalhesFilmeComponent implements OnInit {
     });
 
     this.filmesService
-      .getRecomendations(this.filmeId)
+      .getRecomendationsSerie(this.filmeId)
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
         console.log(this.recomendacoes);
       });
 
-    this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
+    this.filmesService.getCreditsSerie(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
       console.log(this.credits);
     });
 
-    this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
+    this.filmesService.getVideoSerie(this.filmeId).subscribe((response: any) => {
       this.videos = response.results;
       this.updateVideoUrl(this.videos[0].key);
     });
 
     this.filmesService
-      .getReleaseDate(this.filmeId)
+      .getReleaseDateSerie(this.filmeId)
       .subscribe((response: any) => {
         this.releaseDate = response.results.find(
           (result: any) => result.iso_3166_1 == 'BR'
-        ).release_dates[0].certification;
+        ).rating;
 
         if (this.releaseDate[0] == undefined || this.releaseDate[0] == null) {
           this.classification = 'Classificação Livre';
