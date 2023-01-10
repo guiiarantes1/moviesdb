@@ -34,7 +34,7 @@ export class DetalhesFilmeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.route.params.subscribe((params) => (this.filmeId = params['id'], this.recomendacaoId = params['id']));
+    this.route.params.subscribe((params) => (this.filmeId = params['id']));
 
   }
 

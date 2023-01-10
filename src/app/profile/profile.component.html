@@ -13,8 +13,17 @@
       <section class="detalhesProfile">
         <section class="informacoesProfile">
           <section class="socialMedia">
-          <a class="facebook" [href]="facebook_id + externalIds.facebook_id"><span class="facebook-logo"></span> </a>
-        </section>
+            <a *ngIf="facebook_id"  [href]="facebook_id + externalIds.facebook_id"
+          ><img class="facebook" src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/facebook-71155d1cd369c47ce8456477833a92c324fa01e6d628cb6ece19cedea3c1c480.svg">
+        </a>
+
+            <a *ngIf="externalIds.instagram_id" class="instagram" [href]="instagram_id + externalIds.instagram_id"
+            ><img src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/instagram-74e6299c864adc384258da3b3a8eb09282b7ccda4dd1dfa9a4158ba2ea8583b9.svg">
+          </a>
+          <a *ngIf="twitter_id" class="twitter" [href]="twitter_id + externalIds.twitter_id"
+          ><img src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/twitter-a6ff8c172b8e086f4a64578cee0a16676c1a067b47a1b1b186d58795d241a852.svg">
+        </a>
+          </section>
           <h3>Informações Pessoais</h3>
 
           <h4>Conhecido(a) por</h4>
@@ -24,11 +33,10 @@
           <h4>Nascimento</h4>
           <p>{{ profile.birthday | date : "dd/MM/yyyy" }}</p>
           <h4 *ngIf="profile.deathday">Falecimento †</h4>
-          <p>{{profile.deathday | date : "dd/MM/yyyy"}}</p>
+          <p>{{ profile.deathday | date : "dd/MM/yyyy" }}</p>
           <h4>Local de Nascimento (em inglês)</h4>
           <p>{{ profile.place_of_birth }}</p>
-
-      </section>
+        </section>
       </section>
     </div>
 
@@ -45,7 +53,7 @@
         <section class="profileMovies">
           <mat-card
             class="filme"
-            *ngFor="let profileMovie of profileMovies "
+            *ngFor="let profileMovie of profileMovies"
             [routerLink]="['', 'detalhes', profileMovie.id]"
           >
             <img
@@ -62,10 +70,25 @@
         </section>
       </section>
 
-      <section class="atuacao">
-        <p>Atuação</p>
+        <section class="atuacao">
+          <p>Atuação</p>
+          <table mat-table [dataSource]="atuacaoMovies" class="mat-elevation-z4">
+            <ng-container matColumnDef="release_date">
 
-      </section>
+              <td mat-cell *matCellDef="let element"> {{element.release_date || element.first_air_date | date : " yyyy"}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="title">
+
+              <td mat-cell *matCellDef="let element"> <a [routerLink]="['', 'detalhes', element.id]">{{element.title || element.name}}</a> como <p class="personagem">{{element.character}}</p> </td>
+            </ng-container>
+            <tr mat-header-row ="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        </section>
+
     </div>
   </div>
 </div>

@@ -36,7 +36,7 @@
     .imagem {
       display: flex;
       justify-content: center;
-      margin: 20px auto 40px auto;
+      margin: 20px auto 0 auto;
 
       img {
         width: 70% !important;
@@ -50,12 +50,14 @@
       justify-content: center;
 
       .informacoesProfile {
+        img {
+          width: 30px !important;
+          height: 30px !important;
+          margin-right: 10px;
+          margin-bottom: 15px;
+        }
         .socialmedia {
-          .facebook {
-            background-image: url("https://www.themoviedb.org/assets/2/v4/glyphicons/social/facebook-71155d1cd369c47ce8456477833a92c324fa01e6d628cb6ece19cedea3c1c480.svg") !important;
-            .facebook-logo {
-            }
-          }
+          display: inline;
         }
         h3 {
           font-weight: 700;
@@ -133,10 +135,31 @@
       }
     }
     .atuacao {
-      margin-top: 30px;
+      margin-top: 50px;
       p {
         font-weight: 500;
-        font-size: 21px;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      width: 100%;
+      .mat-elevation-z4 {
+        width: 100%;
+        .personagem {
+          display: inline;
+          font-size: 14px;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: 500;
+          &:visited {
+            text-decoration: none;
+            a:hover {
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
@@ -147,9 +170,7 @@
     width: 90%;
 
     .informacoes {
-
       .imagem {
-
         img {
           width: 80% !important;
           display: flex;
@@ -160,32 +181,84 @@
   }
 }
 @media (max-width: 1000px) {
-  .body{
+  .body {
     width: 100%;
-  }
-}
-
-@media (max-width: 700px) {
-.header{
-  margin: 0 !important;
-}
-.body{
-  margin: 0;
-  display: inline;
-
-.informacoes{
-  border-radius: 0 !important;
-  width: auto !important;
-  .imagem{
-    margin:auto !important;
-
-    width: 70% !important;
-
-    img{
-      margin-top: 10px;
-      width: 80% !important;
+    .profile {
+      margin: 0 !important;
+    }
+    .atuacao {
+      width: 100% !important;
+      .mat-elevation-z4 {
+        td{
+          padding: 5px !important;
+        }
+        width: 100% !important;
+      }
     }
   }
 }
+
+@media (max-width: 820px) {
+  .container {
+    .header {
+      margin: 0 !important;
+    }
+    .body {
+      margin: 0;
+      display: inline;
+
+      .informacoes {
+        border-radius: 0 !important;
+        width: 100%;
+
+        .imagem {
+          margin: auto !important;
+
+          width: 70% !important;
+
+          img {
+            margin-top: 10px;
+            width: 80% !important;
+          }
+        }
+      }
+
+      .profile {
+        width: auto !important;
+        margin-left: 10px !important;
+        padding: 0;
+        .nomeProfile {
+          margin-top: 20px;
+        }
+        .biografia {
+          width: 95% !important;
+          margin: 0 !important;
+        }
+      }
+
+      .filmesProfile {
+        width: 95% !important;
+        .profileMovies {
+          width: 100% !important;
+        }
+      }
+      .filmesProfile {
+        width: 85%;
+        margin: 0 !important;
+        .atuacao {
+          width: 90% !important;
+        }
+      }
+
+      .atuacao {
+        width: 95% !important;
+        td{
+          padding: 10px !important;
+        }
+        mat-table {
+        }
+      }
+    }
+  }
 }
-}
+
