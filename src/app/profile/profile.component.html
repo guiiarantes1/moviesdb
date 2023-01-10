@@ -13,14 +13,14 @@
       <section class="detalhesProfile">
         <section class="informacoesProfile">
           <section class="socialMedia">
-            <a *ngIf="facebook_id"  [href]="facebook_id + externalIds.facebook_id"
+            <a *ngIf="externalIds.facebook_id"  [href]="facebook_id + externalIds.facebook_id"
           ><img class="facebook" src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/facebook-71155d1cd369c47ce8456477833a92c324fa01e6d628cb6ece19cedea3c1c480.svg">
         </a>
 
             <a *ngIf="externalIds.instagram_id" class="instagram" [href]="instagram_id + externalIds.instagram_id"
             ><img src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/instagram-74e6299c864adc384258da3b3a8eb09282b7ccda4dd1dfa9a4158ba2ea8583b9.svg">
           </a>
-          <a *ngIf="twitter_id" class="twitter" [href]="twitter_id + externalIds.twitter_id"
+          <a *ngIf="externalIds.twitter_id" class="twitter" [href]="twitter_id + externalIds.twitter_id"
           ><img src="https://www.themoviedb.org/assets/2/v4/glyphicons/social/twitter-a6ff8c172b8e086f4a64578cee0a16676c1a067b47a1b1b186d58795d241a852.svg">
         </a>
           </section>
