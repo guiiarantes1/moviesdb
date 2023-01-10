@@ -18,6 +18,15 @@ const GENRES: any = {
   Família: 10751,
   Guerra: 10752,
   'Cinema TV': 10770,
+  'Action & Adventure':10759,
+  Kids: 10762,
+  News: 10763,
+  Reality: 10764,
+  'Sci-Fi & Fantasy': 10765,
+  Soap: 10766,
+  Talk: 10767,
+  'War & Politics':10768,
+
 };
 
 
