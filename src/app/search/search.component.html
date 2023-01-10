@@ -4,18 +4,19 @@
     <button mat-button (click)="voltar()">Voltar</button>
   </div>
 
-  <div class="search">
-    <form class="example-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" autocomplete="off">
-      <mat-form-field class="example-full-width">
-        <mat-label>Pesquisar</mat-label>
-        <input matInput type="text" formControlName="filtro" />
-        <button class="button" type="submit"><mat-icon>search</mat-icon></button>
-      </mat-form-field>
 
-    </form>
-  </div>
 
   <div class="body">
+    <div class="search">
+      <form class="example-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <mat-form-field class="example-full-width">
+          <mat-label>Pesquisar</mat-label>
+          <input matInput type="text" formControlName="filtro" />
+          <button class="button" type="submit"><mat-icon>search</mat-icon></button>
+        </mat-form-field>
+
+      </form>
+    </div>
     <div class="conteudoSearch">
       <mat-card
         class="filme"
