@@ -20,7 +20,10 @@ export class ProfileComponent implements OnInit {
   instagram_id = 'https://www.instagram.com/';
   twitter_id = 'https://twitter.com/';
   atuacaoMovies!: any[];
+  producaoMovies!: any[];
   displayedColumns: string[] = ['release_date', 'title'];
+  producao:boolean = true;
+
 
   constructor(
     private filmesService: FilmesService,
@@ -64,6 +67,19 @@ export class ProfileComponent implements OnInit {
             new Date(b.release_date || b.first_air_date).getTime() -
             new Date(a.release_date || a.first_air_date).getTime()
         );
+        this.producaoMovies = response.crew.filter((filme:any) => filme.first_air_date || filme.release_date);
+        this.producaoMovies.sort(
+          (a: any, b: any) =>
+            new Date(b.release_date || b.first_air_date).getTime() -
+            new Date(a.release_date || a.first_air_date).getTime()
+
+        );
+        console.log(this.producaoMovies);
+        if(this.producaoMovies.length == 0){
+          this.producao = false
+        } else{
+          this.producao = true
+        }
 
         console.log(this.atuacaoMovies);
       });

@@ -129,8 +129,6 @@
         }
         mat-card-content {
           margin: 0 0 10px 0;
-          .descricao {
-          }
         }
       }
     }
@@ -144,6 +142,48 @@
       width: 100%;
       .mat-elevation-z4 {
         width: 100%;
+        .release_date{
+          font-size: 15px;
+        }
+        .qntdEpisodios{
+          display: inline;
+          font-size: 12px;
+        }
+        .personagem {
+          display: inline;
+          font-size: 14px;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: 500;
+          &:visited {
+            text-decoration: none;
+            a:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .producao {
+      margin-top: 50px;
+      p {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      width: 100%;
+      .mat-elevation-z4 {
+        width: 100%;
+        .release_date{
+          font-size: 15px;
+        }
+        .qntdEpisodios{
+          display: inline;
+          font-size: 12px;
+        }
         .personagem {
           display: inline;
           font-size: 14px;
@@ -189,9 +229,7 @@
     .atuacao {
       width: 100% !important;
       .mat-elevation-z4 {
-        td{
-          padding: 5px !important;
-        }
+
         width: 100% !important;
       }
     }
@@ -252,13 +290,10 @@
 
       .atuacao {
         width: 95% !important;
-        td{
+        td {
           padding: 10px !important;
-        }
-        mat-table {
         }
       }
     }
   }
 }
-
