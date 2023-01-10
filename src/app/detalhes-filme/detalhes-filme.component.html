@@ -99,7 +99,7 @@
     <div class="recomendacoes" *ngIf="recomendacoes">
       <h3>Recomendações</h3>
       <section class="recomendados">
-        <mat-card class="filme" *ngFor="let recomendacao of recomendacoes" [routerLink]="['','detalhes', recomendacao.id]">
+        <mat-card class="filme" *ngFor="let recomendacao of recomendacoes"  (click)="redirectRecomendation(recomendacao.id)">
           <img
             mat-card-image
             [src]="imgBaseUrl + recomendacao.poster_path"

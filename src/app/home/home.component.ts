@@ -103,4 +103,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['','search', this.query]).then(nav => {
       window.location.reload();});
   }
+  goToDetails(id:any){
+
+
+    console.log(this.filmesFiltrados.filter((filme)=>
+    filme.id.includes(id)))
+  }
 }

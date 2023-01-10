@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { FilmesService } from './../services/filmes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-detalhes-filme',
   templateUrl: './detalhes-filme.component.html',
@@ -25,8 +24,7 @@ export class DetalhesFilmeComponent implements OnInit {
   classification = '';
   nota!: string;
   crew!: any[];
-  recomendacaoId:any;
-
+  recomendacaoId: any;
 
   constructor(
     private filmesService: FilmesService,
@@ -35,7 +33,6 @@ export class DetalhesFilmeComponent implements OnInit {
     private router: Router
   ) {
     this.route.params.subscribe((params) => (this.filmeId = params['id']));
-
   }
 
   ngOnInit(): void {
@@ -49,7 +46,7 @@ export class DetalhesFilmeComponent implements OnInit {
         this.nota = 'spinner-container-bom';
       } else if (
         this.detalhes.vote_average >= 4 &&
-        this.detalhes.vote_average <7
+        this.detalhes.vote_average < 7
       ) {
         this.nota = 'spinner-container-medio';
       } else {
@@ -62,14 +59,12 @@ export class DetalhesFilmeComponent implements OnInit {
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
         console.log(this.recomendacoes);
-
-
       });
 
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
-      console.log(this.credits)
+      console.log(this.credits);
     });
 
     this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
@@ -103,9 +98,12 @@ export class DetalhesFilmeComponent implements OnInit {
     let minutes = Math.floor(value % 60);
     return hours + 'h ' + minutes + 'm';
   }
-  voltar(){
+  voltar() {
     window.history.back();
-}
+  }
+  redirectRecomendation(id:any){
+    this.router.navigate(['','detalhes', id]).then(nav => {
+      window.location.reload();});
 
-
+  }
 }

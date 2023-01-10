@@ -18,10 +18,12 @@ base_Url = environment.urlBase;
 
   getDetails(id:any): Observable<any>{
     return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+    //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+    //https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
   }
 
   getMovies(pageNumber:any): Observable<any>{
-    return this.httpClient.get(this.base_Url + 'movie/popular?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
+    return this.httpClient.get(this.base_Url + '/trending/all/week?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
   }
 
   getRecomendations(id:any): Observable<any>{
