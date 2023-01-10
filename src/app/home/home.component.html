@@ -20,11 +20,11 @@
           <mat-button-toggle
             [ngClass]="{
               filtro: true,
-              filtroSelecionado: filtro == filtroAtual
+              filtroSelecionado: filtroAtual.includes(filtro)
             }"
             (click)="filtrar(filtro)"
             >{{ filtro }}
-            <mat-icon *ngIf="filtro == filtroAtual">cancel</mat-icon>
+            <mat-icon *ngIf="filtroAtual.includes(filtro)">cancel</mat-icon>
           </mat-button-toggle>
         </mat-button-toggle-group>
       </div>

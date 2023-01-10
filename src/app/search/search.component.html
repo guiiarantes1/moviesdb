@@ -19,7 +19,7 @@
     <div class="conteudoSearch">
       <mat-card
         class="filme"
-        [routerLink]="['', 'detalhes', conteudoSearch.id]"
+        (click)="redirectSearch(conteudoSearch.media_type,conteudoSearch.id)"
         *ngFor="let conteudoSearch of conteudosSearch"
       >
         <img

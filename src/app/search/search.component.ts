@@ -56,4 +56,13 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['','search', this.query]).then(nav => {
       window.location.reload();});
   }
+  redirectSearch(media:any, id:any){
+    if(media == 'movie'){
+      this.router.navigate(['','detalhes', id]).then(nav => {
+        window.location.reload();});
+    } else{
+      this.router.navigate(['','serie', id]).then(nav => {
+        window.location.reload();});
+    }
+  }
 }

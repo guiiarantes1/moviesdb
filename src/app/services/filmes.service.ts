@@ -23,7 +23,7 @@ base_Url = environment.urlBase;
   }
 
   getMovies(pageNumber:any): Observable<any>{
-    return this.httpClient.get(this.base_Url + '/trending/all/week?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
+    return this.httpClient.get(this.base_Url + '/trending/all/day?api_key=' + this.apiKey+ '&language=pt-BR&page=' + pageNumber)
   }
 
   getRecomendations(id:any): Observable<any>{

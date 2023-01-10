@@ -24,6 +24,8 @@ export class DetalhesSerieComponent implements OnInit {
   nota!: string;
   crew!: any[];
   recomendacaoId: any;
+  status:any;
+
 
   constructor(
     private filmesService: FilmesService,
@@ -51,6 +53,14 @@ export class DetalhesSerieComponent implements OnInit {
       } else {
         this.nota = 'spinner-container-ruim';
       }
+
+      if(this.detalhes.status == 'Canceled'){
+        this.status = "Cancelada."
+      } else if(this.detalhes.status == 'Ended'){
+        this.status = "Finalizada."
+      }else{
+        this.status = "Em Produção."
+      }
     });
 
     this.filmesService
@@ -63,7 +73,7 @@ export class DetalhesSerieComponent implements OnInit {
     this.filmesService.getCreditsSerie(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
-      console.log(this.credits);
+      console.log(response);
     });
 
     this.filmesService.getVideoSerie(this.filmeId).subscribe((response: any) => {
