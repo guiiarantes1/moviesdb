@@ -52,9 +52,7 @@ base_Url = environment.urlBase;
 
  getProfileMovies(id:any):Observable<any>{
   return this.httpClient.get(this.base_Url +'person/'+ id + '/combined_credits?api_key=' + this.apiKey + '&language=pt-BR')
-
  }
-
 
  getProfileExternalIds(id:any):Observable<any>{
   return this.httpClient.get(this.base_Url +'person/'+ id + '/external_ids?api_key=' + this.apiKey + '&language=pt-BR')
