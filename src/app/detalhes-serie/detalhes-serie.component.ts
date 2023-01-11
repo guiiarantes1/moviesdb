@@ -14,7 +14,7 @@ export class DetalhesSerieComponent implements OnInit {
   credits!: any[];
   videos!: any[];
   detalhes!: any;
-  imgBaseUrl = environment.urlImgBase;
+  imgBaseUrl = 'https://api.themoviedb.org/3/';
   videoUrl!: any;
   filmeId: any;
   genres: any;

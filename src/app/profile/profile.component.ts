@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   profileId: any;
   profile: any;
   imgBaseUrl = 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2';
-  imgMovieUrl = environment.urlImgBase;
+  imgMovieUrl = 'https://api.themoviedb.org/3/';
   profileMovies!: any[];
   https = 'https://';
   externalIds: any;
@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   producaoMovies!: any[];
   displayedColumns: string[] = ['release_date', 'title'];
   producao:boolean = true;
+
 
 
   constructor(
