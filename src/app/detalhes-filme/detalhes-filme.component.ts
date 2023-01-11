@@ -15,7 +15,7 @@ export class DetalhesFilmeComponent implements OnInit {
   credits!: any[];
   videos!: any[];
   detalhes!: any;
-  imgBaseUrl = 'https://api.themoviedb.org/3/';
+  imgBaseUrl = 'https://image.tmdb.org/t/p/original';
   videoUrl!: any;
   filmeId: any;
   genres: any;
@@ -25,6 +25,8 @@ export class DetalhesFilmeComponent implements OnInit {
   nota!: string;
   crew!: any[];
   recomendacaoId: any;
+
+
 
 
   constructor(

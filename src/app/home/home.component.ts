@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   filtros = Object.keys(GENRES);
 
   filmesFiltrados!: any[];
-  imgBaseUrl = 'https://api.themoviedb.org/3/';
+  imgBaseUrl = 'https://image.tmdb.org/t/p/original';
   filtroAtual!: string[];
 
   query: any;
