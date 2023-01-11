@@ -21,21 +21,20 @@ export class HomeComponent implements OnInit {
   filtroAtual!: string[];
 
   query: any;
-  filtrado:any;
+  filtrado: any;
 
-   checkoutForm = this.formBuilder.group({
-     filtro: '',
-   });
+  checkoutForm = this.formBuilder.group({
+    filtro: '',
+  });
 
-   pageNumber: any = 1;
-   conteudosSearch!: any[];
-
+  pageNumber: any = 1;
+  conteudosSearch!: any[];
 
   constructor(
     private filmesService: FilmesService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -55,9 +54,10 @@ export class HomeComponent implements OnInit {
       this.filmesFiltrados = this.filmes;
       if (this.filtroAtual.length !== 0) {
         this.filmesFiltrados = this.filmes.filter((filme) =>
-          this.filtroAtual.every((filtro:any) =>
+          this.filtroAtual.every((filtro: any) =>
             filme.genre_ids.includes(GENRES[filtro])
-          ));
+          )
+        );
         //   this.filtroAtual.some((filtro:any) =>
         //   filme.genre_ids.includes(filtro)
         // ));
@@ -66,42 +66,44 @@ export class HomeComponent implements OnInit {
     });
   }
   filtrar(filtro: string) {
-    if (!this.filtroAtual.includes(filtro) ) {
+    if (!this.filtroAtual.includes(filtro)) {
       this.filtroAtual.push(filtro);
       this.filmesFiltrados = this.filmes.filter((filme) =>
-          this.filtroAtual.every((filtro:any) =>
-            filme.genre_ids.includes(GENRES[filtro])
-      ));
+        this.filtroAtual.every((filtro: any) =>
+          filme.genre_ids.includes(GENRES[filtro])
+        )
+      );
       console.log(this.filtroAtual);
       console.log(this.filmesFiltrados);
     } else {
-      this.filtroAtual = this.filtroAtual.filter((f:string) =>
-      f !== filtro
-      );
+      this.filtroAtual = this.filtroAtual.filter((f: string) => f !== filtro);
       this.filmesFiltrados = this.filmes.filter((filme) =>
-          this.filtroAtual.every((filtro:any) =>
-            filme.genre_ids.includes(GENRES[filtro])
-      ));
+        this.filtroAtual.every((filtro: any) =>
+          filme.genre_ids.includes(GENRES[filtro])
+        )
+      );
       console.log(this.filtroAtual);
       console.log(this.filmesFiltrados);
-
     }
   }
 
   onSubmit() {
-    this.query = this.checkoutForm.value.filtro
-    console.log(this.query );
+    this.query = this.checkoutForm.value.filtro;
+    console.log(this.query);
 
-    this.router.navigate(['','search', this.query]).then(nav => {
-      window.location.reload();});
+    this.router.navigate(['', 'search', this.query]).then((nav) => {
+      window.location.reload();
+    });
   }
-  goToShow(media:any, id:any){
-    if(media == 'movie'){
-      this.router.navigate(['','detalhes', id]).then(nav => {
-        window.location.reload();});
-    } else{
-      this.router.navigate(['','serie', id]).then(nav => {
-        window.location.reload();});
+  goToShow(media: any, id: any) {
+    if (media == 'movie') {
+      this.router.navigate(['', 'detalhes', id]).then((nav) => {
+        window.location.reload();
+      });
+    } else {
+      this.router.navigate(['', 'serie', id]).then((nav) => {
+        window.location.reload();
+      });
     }
   }
 }

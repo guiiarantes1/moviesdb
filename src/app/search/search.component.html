@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <p routerLink="">Homem de Ferro Films</p>
+    <p routerLink="">Filmes DB Project</p>
     <button mat-button (click)="voltar()">Voltar</button>
   </div>
 
@@ -11,7 +11,7 @@
       <form class="example-form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-form-field class="example-full-width">
           <mat-label>Pesquisar</mat-label>
-          <input matInput type="text" formControlName="filtro" placeholder="Buscar por um Filme ou Série" />
+          <input matInput type="text" formControlName="filtro" />
           <button class="button" type="submit"><mat-icon>search</mat-icon></button>
         </mat-form-field>
 
