@@ -211,7 +211,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .titulo {
     .texto-titulo {
       font-size: 35px !important;
@@ -249,7 +249,7 @@
           width: 78%;
           font-size: 18px;
           text-align: center;
-          margin-left: 50px;
+          margin-left: 20px !important;
         }
 
         mat-label {
@@ -275,28 +275,134 @@
     }
   }
 }
+.filmes {
+  display: grid;
+  justify-content: center;
+  grid-template-columns:
+    minmax(180px, max-content)
+    repeat(auto-fill, 180px);
+  margin: 0 !important;
 
-@media (max-width: 365px) {
+  max-width: 1000px !important;
+  height: auto;
+  margin-bottom: 25px;
+
+  .filme {
+    margin: 25px 5px 0px 5px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    :hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .search{
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+  }
   .titulo {
     .texto-titulo {
-      .texto-titulo {
-        font-size: 35px !important;
-        text-align: center;
-        font-weight: 700;
-        line-height: 38px !important;
-        letter-spacing: -0.005em;
-        width: 80% !important;
-        margin: 40px auto 0 auto !important;
+      font-size: 35px !important;
+      text-align: center;
+      font-weight: 700;
+      line-height: 38px !important;
+      letter-spacing: -0.005em;
+      width: 95% !important;
+      margin: 10px auto 0 auto !important;
+    }
+  }
+  .filtros {
+    margin: 15px auto 20px auto !important;
+    width: 100%;
+    height: auto;
+
+    .filtre {
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .chips {
+      display: flex !important;
+      justify-content: center;
+      height: auto;
+      margin: auto;
+      width: 95% !important;
+      flex-wrap: wrap;
+
+      .lista-filtros {
+        display: flex;
+        margin: 0 12px 12px 0;
+        height: auto;
+        border: none;
+
+        .filtro {
+          margin-top: -8px;
+          width: auto;
+          height: 40px !important;
+          border-radius: 4px;
+          background-color: white;
+          text-align: center;
+          font-weight: 700;
+          font-size: 13px !important;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .filtroSelecionado {
+          margin-top: -8px;
+          border-radius: 4px;
+          width: auto;
+          height: 40px;
+          background-color: #3c1b4e;
+          color: white;
+          &:hover {
+            cursor: pointer;
+          }
+
+          mat-icon {
+            margin-top: -2px;
+            color: white;
+          }
+        }
       }
     }
   }
+
   .filmes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    justify-content: center !important;
+    grid-template-columns:
+      minmax(170px, max-content)
+      repeat(auto-fill, 170px);
+    margin: auto !important;
+    max-width: 1000px !important;
+    height: auto;
+    margin-bottom: 25px;
+
+    .filme {
+      margin: 25px 2px 0px 2px !important;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: none;
+      :hover {
+        cursor: pointer;
+      }
+    }
+    img {
+      border-radius: 4px;
+      max-width: 166px !important;
+      height: 264px !important;
+      margin: 0;
+    }
   }
 
-  .filme {
-    margin: 20px auto auto auto !important;
-  }
+
 }

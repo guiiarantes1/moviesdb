@@ -18,8 +18,6 @@ const GENRES: any = {
   Família: 10751,
   Guerra: 10752,
   'Cinema TV': 10770,
-  Reality: 10764,
-
 
 };
 
