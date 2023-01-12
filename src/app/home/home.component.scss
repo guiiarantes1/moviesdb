@@ -1,10 +1,7 @@
-
 .header {
   background-image: url("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,032541,01b4e4)/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg");
   background-repeat: repeat-x;
-
   background-position: center;
-
   width: 100%;
   height: auto;
   left: 0px;
@@ -229,7 +226,7 @@
   .chips {
     display: flex !important;
     width: 90% !important;
-    justify-content: initial !important;
+    justify-content: center !important;
   }
   .search {
     display: flex;
