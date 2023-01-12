@@ -47,15 +47,15 @@ base_Url = 'https://api.themoviedb.org/3';
  }
 
  getProfile(id:any):Observable<any>{
-  return this.httpClient.get(this.base_Url + 'person/'+id+'?api_key=' + this.apiKey + '&language=pt-BR')
+  return this.httpClient.get(this.base_Url + '/person/'+id+'?api_key=' + this.apiKey + '&language=pt-BR')
  }
 
  getProfileMovies(id:any):Observable<any>{
-  return this.httpClient.get(this.base_Url +'person/'+ id + '/combined_credits?api_key=' + this.apiKey + '&language=pt-BR')
+  return this.httpClient.get(this.base_Url +'/person/'+ id + '/combined_credits?api_key=' + this.apiKey + '&language=pt-BR')
  }
 
  getProfileExternalIds(id:any):Observable<any>{
-  return this.httpClient.get(this.base_Url +'person/'+ id + '/external_ids?api_key=' + this.apiKey + '&language=pt-BR')
+  return this.httpClient.get(this.base_Url +'/person/'+ id + '/external_ids?api_key=' + this.apiKey + '&language=pt-BR')
  }
 
  getSearch(filtro:any, pageNumber:any):Observable<any>{
