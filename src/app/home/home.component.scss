@@ -154,7 +154,6 @@
     minmax(180px, max-content)
     repeat(auto-fill, 200px);
   margin: auto !important;
-
   max-width: 1000px;
   height: auto;
   margin-bottom: 25px;
@@ -281,7 +280,7 @@
   grid-template-columns:
     minmax(180px, max-content)
     repeat(auto-fill, 180px);
-  margin: 0 !important;
+    margin: auto !important;
 
   max-width: 1000px !important;
   height: auto;
