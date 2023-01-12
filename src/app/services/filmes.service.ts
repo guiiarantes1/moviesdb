@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { first, Observable } from 'rxjs';
 import { Filme } from '../models/filme.models';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +17,7 @@ base_Url = 'https://api.themoviedb.org/3';
   constructor(private httpClient: HttpClient) { }
 
   getDetails(id:any): Observable<any>{
-    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+    return this.httpClient.get(this.base_Url+ '/movie/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR').pipe(first())
     //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
     //https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
   }
@@ -64,7 +64,7 @@ base_Url = 'https://api.themoviedb.org/3';
 /////////////// SERIES ///////////
 
 getDetailsSerie(id:any): Observable<any>{
-  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR').pipe(first())
   //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
   //https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
 }
@@ -78,7 +78,7 @@ getRecomendationsSerie(id:any): Observable<any>{
 }
 
 getCreditsSerie(id:any): Observable<any>{
-  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '/credits?api_key=' + this.apiKey + '&language=pt-BR')
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '/aggregate_credits?api_key=' + this.apiKey + '&language=pt-BR')
 }
 
 getVideoSerie(id:any): Observable<any>{

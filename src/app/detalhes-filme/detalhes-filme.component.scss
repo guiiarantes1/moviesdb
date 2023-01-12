@@ -1,10 +1,12 @@
 .header {
   color: white;
-  background-color: #348ac7;
+  background-size: cover !important;
   height: 675px;
   box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
   border: 1px solid rgba(var(--lightGrey), 1);
+
   .logo {
+
     background-color: #0070ad;
     height: 56px;
     margin: 0;
@@ -32,7 +34,7 @@
 
     .imagem {
       display: flex;
-      padding: 0 33px 0 0;
+      padding: 0 10px 0 0;
       margin-bottom: 20px;
 
       img {
@@ -43,7 +45,13 @@
       }
     }
     .corpo-header {
+      padding: 20px;
+      border-radius: 8px;
       margin-left: 10px;
+      margin-bottom: 10px;
+      height: max-content !important;
+      background-color: #41414193;
+
 
       .titulo {
         font-weight: 700;
@@ -51,6 +59,7 @@
         line-height: 38px;
         height: auto;
         width: 95%;
+
       }
       .informacoes {
         width: 85%;

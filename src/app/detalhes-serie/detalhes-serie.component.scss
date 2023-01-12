@@ -1,10 +1,9 @@
 .header {
   color: white;
-  background-color: #348ac7;
-
   height: 675px;
   box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
   border: 1px solid rgba(var(--lightGrey), 1);
+  background-size: cover!important;
   .logo {
     background-color: #0070ad;
     height: 56px;
@@ -44,7 +43,12 @@
       }
     }
     .corpo-header {
+      padding: 20px;
+      border-radius: 8px;
       margin-left: 10px;
+      margin-bottom: 10px;
+      height: max-content !important;
+      background-color: #41414193;
 
       .titulo {
         font-weight: 700;
@@ -178,8 +182,9 @@
       line-height: 32px;
     }
     .elenco-card {
-      width: 191px;
-      height: 336px;
+      width: 210px;
+      min-height: 206px;
+
       padding: 8px;
       gap: 16px;
       align-items: center;
@@ -299,6 +304,7 @@
 @media (max-width: 700px) {
   .header {
     height: auto;
+  background-position: center;
   }
   .detalhes {
     display: flex;

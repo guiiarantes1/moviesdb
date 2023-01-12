@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="header">
+  <div class="header" [ngStyle]="{'background-image': 'url(' + imgBaseUrl + detalhes.backdrop_path+ ')'}">
     <section class="logo">
       <p routerLink="">Filmes DB Project</p>
       <button mat-button (click)="voltar()">Voltar</button>
@@ -83,7 +83,8 @@
           />
           <mat-card-content class="info-personagem">
             <p class="ator">{{ credit.name }}</p>
-            <p class="personagem">{{ credit.character }}</p>
+            <p class="personagem">{{ credit.roles[0].character}}</p>
+            <p class="personagem">{{ credit.total_episode_count }} episódios</p>
           </mat-card-content>
         </mat-card>
       </section>

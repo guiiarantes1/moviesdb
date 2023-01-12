@@ -25,8 +25,8 @@ export class DetalhesSerieComponent implements OnInit {
   crew!: any[];
   recomendacaoId: any;
   status:any;
-
-
+  backdropURL!: string;
+  backdrop!:string;
 
   constructor(
     private filmesService: FilmesService,
@@ -40,6 +40,9 @@ export class DetalhesSerieComponent implements OnInit {
   ngOnInit(): void {
     this.filmesService.getDetailsSerie(this.filmeId).subscribe((response: any) => {
       this.detalhes = response;
+      this.backdrop = this.detalhes.backdrop_path
+      this.backdropURL = 'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,0f0f0f,acacac)' + this.backdrop
+      console.log(this.backdropURL)
       this.genres = this.detalhes.genres
         .map((genre: any) => genre.name)
         .join(', ');
@@ -120,4 +123,7 @@ export class DetalhesSerieComponent implements OnInit {
         window.location.reload();});
     }
   }
+
 }
+
+

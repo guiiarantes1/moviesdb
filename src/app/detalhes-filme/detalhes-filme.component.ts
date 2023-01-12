@@ -26,6 +26,7 @@ export class DetalhesFilmeComponent implements OnInit {
   crew!: any[];
   recomendacaoId: any;
 
+  backgroundImg:any = 'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,0f0f0f,acacac)';
 
 
 
@@ -36,11 +37,14 @@ export class DetalhesFilmeComponent implements OnInit {
     private router: Router
   ) {
     this.route.params.subscribe((params) => (this.filmeId = params['id']));
+
   }
 
   ngOnInit(): void {
     this.filmesService.getDetails(this.filmeId).subscribe((response: any) => {
       this.detalhes = response;
+
+      console.log(this.backgroundImg)
       this.genres = this.detalhes.genres
         .map((genre: any) => genre.name)
         .join(', ');
@@ -88,6 +92,7 @@ export class DetalhesFilmeComponent implements OnInit {
           this.classification = this.releaseDate! + ' anos';
         }
       });
+
   }
 
   updateVideoUrl(key: string) {
@@ -113,4 +118,5 @@ export class DetalhesFilmeComponent implements OnInit {
         window.location.reload();});
     }
   }
+
 }

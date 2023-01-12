@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="header">
+    <div class="header" [ngStyle]="{'background-image': 'url(' + imgBaseUrl + detalhes.backdrop_path+ ')'}">
     <section class="logo">
       <p routerLink="">Filmes DB Project</p>
       <button mat-button (click)="voltar()">Voltar</button>
     </section>
 
-    <div class="detalhes">
+    <div class="detalhes" >
       <section class="imagem">
         <img [src]="imgBaseUrl + detalhes.poster_path" />
       </section>
@@ -68,6 +68,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="body">
     <div class="elenco">

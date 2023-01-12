@@ -1,5 +1,8 @@
 .header {
-  background-color: #348ac7;
+  background-image: url("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,032541,01b4e4)/7lmBufEG7P7Y1HClYK3gCxYrkgS.jpg");
+  background-size: auto !important;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
   height: auto;
   left: 0px;
@@ -12,7 +15,7 @@
   border: 1px solid rgba(var(--lightGrey), 1);
 
   .logo {
-    background-color: #0070ad;
+    background-color: #000320c2;
     width: 100%;
     height: 56px;
     display: flex;
@@ -212,10 +215,10 @@
 @media (max-width: 700px) {
   .titulo {
     .texto-titulo {
-      font-size: 45px;
+      font-size: 35px !important;
       text-align: center;
       font-weight: 700;
-      line-height: 56px;
+      line-height: 38px !important;
       letter-spacing: -0.005em;
       width: 80% !important;
       margin: 40px auto 0 auto !important;
@@ -277,14 +280,15 @@
 @media (max-width: 365px) {
   .titulo {
     .texto-titulo {
-      text-align: center;
-      font-weight: 700;
-      line-height: 56px;
-      letter-spacing: -0.005em;
-
-      margin: 30px auto 0 auto !important;
-      width: 100% !important;
-      font-size: 45px;
+      .texto-titulo {
+        font-size: 35px !important;
+        text-align: center;
+        font-weight: 700;
+        line-height: 38px !important;
+        letter-spacing: -0.005em;
+        width: 80% !important;
+        margin: 40px auto 0 auto !important;
+      }
     }
   }
   .filmes {
