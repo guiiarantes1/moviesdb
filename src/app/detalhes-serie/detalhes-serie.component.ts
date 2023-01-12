@@ -92,7 +92,7 @@ export class DetalhesSerieComponent implements OnInit {
           (result: any) => result.iso_3166_1 == 'BR'
         ).rating;
 
-        if (this.releaseDate[0] == undefined || this.releaseDate[0] == null) {
+        if (this.releaseDate[0] == undefined || this.releaseDate[0] == null || this.releaseDate[0] == "L") {
           this.classification = 'Classificação Livre';
         } else {
           this.classification = this.releaseDate! + ' anos';

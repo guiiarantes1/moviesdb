@@ -312,9 +312,11 @@
     display: flex;
     flex-direction: column;
     margin-top: 30px !important;
+    width: 95% !important;
     .imagem {
+      width: 100% !important;
       justify-content: center;
-      margin: auto;
+      padding: 0 !important;
       img {
         width: 300px !important;
         height: 400px !important;
