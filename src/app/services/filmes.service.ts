@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class FilmesService {
 
 apiKey = 'b75df51b77a191dfd2dc70635cf469f2';
-base_Url = 'https://api.themoviedb.org/3/';
+base_Url = 'https://api.themoviedb.org/3';
 
 
   constructor(private httpClient: HttpClient) { }
