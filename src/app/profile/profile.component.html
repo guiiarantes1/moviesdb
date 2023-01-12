@@ -54,7 +54,7 @@
           <mat-card
             class="filme"
             *ngFor="let profileMovie of profileMovies"
-            [routerLink]="['', 'detalhes', profileMovie.id]"
+            (click)="goToShow(profileMovie.media_type,profileMovie.id)"
           >
             <img
               mat-card-image
@@ -79,7 +79,7 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="title">
-              <td mat-cell *matCellDef="let element"> <a [routerLink]="['', 'detalhes', element.id]">{{element.title || element.name}}</a> <p *ngIf="element.episode_count" class="qntdEpisodios"> ({{element.episode_count}} episódios)</p> <p class="como" *ngIf="element.character"> como </p> <p class="personagem">{{element.character}}</p> </td>
+              <td mat-cell *matCellDef="let element"> <a class="link" (click)="goToShow(element.media_type,element.id)">{{element.title || element.name}}</a> <p *ngIf="element.episode_count" class="qntdEpisodios"> ({{element.episode_count}} episódios)</p> <p class="como" *ngIf="element.character"> como </p> <p class="personagem">{{element.character}}</p> </td>
             </ng-container>
             <tr mat-header-row ="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -96,7 +96,7 @@
 
             <!-- Name Column -->
             <ng-container matColumnDef="title">
-              <td mat-cell *matCellDef="let element"> <a [routerLink]="['', 'detalhes', element.id]">{{element.title || element.name}}</a> <p *ngIf="element.episode_count" class="qntdEpisodios"> ({{element.episode_count}} episódios)</p> <p class="como" *ngIf="element.job"> como </p> <p class="personagem">{{element.job}}</p> </td>
+              <td mat-cell *matCellDef="let element"> <a class="link" (click)="goToShow(element.media_type,element.id)">{{element.title || element.name}}</a> <p *ngIf="element.episode_count" class="qntdEpisodios"> ({{element.episode_count}} episódios)</p> <p class="como" *ngIf="element.job"> como </p> <p class="personagem">{{element.job}}</p> </td>
             </ng-container>
             <tr mat-header-row ="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

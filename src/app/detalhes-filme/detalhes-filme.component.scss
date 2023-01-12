@@ -1,7 +1,7 @@
 .header {
   color: white;
   background-size: cover !important;
-  height: 675px;
+  height: 690px;
   box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
   border: 1px solid rgba(var(--lightGrey), 1);
 
@@ -29,8 +29,8 @@
   }
   .detalhes {
     display: flex;
-    margin: 72px auto auto auto;
-    width: 80%;
+    margin: 65px auto auto auto;
+    width: 95%;
 
     .imagem {
       display: flex;
@@ -39,13 +39,13 @@
 
       img {
         width: 383px;
-        height: 574px;
+        height: 594px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         border-radius: 8px;
       }
     }
     .corpo-header {
-      padding: 20px;
+      padding: 15px;
       border-radius: 8px;
       margin-left: 10px;
       margin-bottom: 10px;
@@ -75,7 +75,6 @@
         font-size: 16px;
         align-items: center;
         margin-top: 16px;
-
 
         p {
           margin-top: 10px;
@@ -122,8 +121,8 @@
       }
 
       .sinopse {
-        width: 60%;
-        margin-top: 32px;
+        min-width: 70%;
+        margin-top: 20px ;
         height: auto;
         .titulo-sinopse {
           font-weight: 700;
@@ -132,7 +131,7 @@
         }
         p {
           font-weight: 400;
-          font-size: 16px;
+          font-size: 15.5px;
           line-height: 24px;
           letter-spacing: -0.005em;
         }
@@ -140,11 +139,10 @@
       .cast {
         margin-top: 24px;
         width: 50%;
-
         display: grid;
         grid-template-columns:
           minmax(160px, max-content)
-          repeat(auto-fill, 160px);
+          repeat(auto-fill, 190px);
         height: auto;
 
         mat-card-content {
@@ -304,7 +302,7 @@
 
 // media responsivo //
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
   .header {
     height: auto;
   }

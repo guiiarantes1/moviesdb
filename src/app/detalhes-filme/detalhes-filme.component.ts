@@ -86,7 +86,9 @@ export class DetalhesFilmeComponent implements OnInit {
           (result: any) => result.iso_3166_1 == 'BR'
         ).release_dates[0].certification;
 
-        if (this.releaseDate[0] == undefined || this.releaseDate[0] == null || this.releaseDate[0] == "L") {
+        console.log(this.releaseDate[0]);
+
+        if (this.releaseDate[0] === undefined || this.releaseDate[0] === null || this.releaseDate[0] == "L") {
           this.classification = 'Classificação Livre';
         } else {
           this.classification = this.releaseDate! + ' anos';

@@ -145,14 +145,14 @@
       width: 100%;
       .mat-elevation-z4 {
         width: 100%;
-        .release_date{
+        .release_date {
           font-size: 15px;
         }
-        .qntdEpisodios{
+        .qntdEpisodios {
           display: inline;
           font-size: 12px;
         }
-        .como{
+        .como {
           display: inline;
           font-size: 12px;
           font-weight: normal;
@@ -161,16 +161,12 @@
           display: inline;
           font-size: 14px;
         }
-        a {
-          text-decoration: none;
+        .link {
           color: black;
           font-size: 16px;
           font-weight: 500;
-          &:visited {
-            text-decoration: none;
-            a:hover {
-              cursor: pointer;
-            }
+          &:hover {
+            cursor: pointer;
           }
         }
       }
@@ -186,14 +182,15 @@
       .mat-elevation-z4 {
         width: 100%;
 
-        .release_date{
+        .release_date {
           font-size: 15px;
+          padding: 15px !important ;
         }
-        .qntdEpisodios{
+        .qntdEpisodios {
           display: inline;
           font-size: 12px;
         }
-        .como{
+        .como {
           display: inline;
           font-size: 12px;
           font-weight: normal;
@@ -202,17 +199,12 @@
           display: inline;
           font-size: 14px;
         }
-        a {
-          text-decoration: none;
+        .link {
           color: black;
           font-size: 16px;
           font-weight: 500;
-
-          &:visited {
-            text-decoration: none;
-            a:hover {
-              cursor: pointer;
-            }
+          &:hover {
+            cursor: pointer;
           }
         }
       }
@@ -244,14 +236,12 @@
     .atuacao {
       width: 100% !important;
       .mat-elevation-z4 {
-
         width: 100% !important;
       }
     }
     .producao {
       width: 100% !important;
       .mat-elevation-z4 {
-
         width: 100% !important;
       }
     }
@@ -311,7 +301,6 @@
         .producao {
           width: 100% !important;
           .mat-elevation-z4 {
-
             width: 100% !important;
           }
         }

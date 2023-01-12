@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FilmesService } from '../services/filmes.service';
 import { environment } from 'src/environments/environment';
 
@@ -28,7 +28,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private filmesService: FilmesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
     this.route.params.subscribe((params) => (this.profileId = params['id']));
   }
@@ -96,5 +97,17 @@ export class ProfileComponent implements OnInit {
 
   voltar() {
     window.history.back();
+  }
+
+  goToShow(media: any, id: any) {
+    if (media == 'movie') {
+      this.router.navigate(['', 'detalhes', id]).then((nav) => {
+        window.location.reload();
+      });
+    } else {
+      this.router.navigate(['', 'serie', id]).then((nav) => {
+        window.location.reload();
+      });
+    }
   }
 }
