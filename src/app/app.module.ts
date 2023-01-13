@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,11 +24,14 @@ import { SearchComponent } from './search/search.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { DetalhesSerieComponent } from './detalhes-serie/detalhes-serie.component';
-
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
+registerLocaleData(localePT);
 
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HomeComponent,
@@ -36,6 +39,8 @@ import { DetalhesSerieComponent } from './detalhes-serie/detalhes-serie.componen
     ProfileComponent,
     SearchComponent,
     DetalhesSerieComponent,
+
+
 
   ],
   imports: [
@@ -55,10 +60,14 @@ import { DetalhesSerieComponent } from './detalhes-serie/detalhes-serie.componen
     MatTableModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
   ],
-  providers: [FilmesService],
+  providers: [FilmesService, { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+export class AppModule {
+
+ }

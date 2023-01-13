@@ -25,6 +25,7 @@ export class DetalhesFilmeComponent implements OnInit {
   nota!: string;
   crew!: any[];
   recomendacaoId: any;
+  recomendacoesNull!:any;
 
   backgroundImg:any = 'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,0f0f0f,acacac)';
 
@@ -66,6 +67,9 @@ export class DetalhesFilmeComponent implements OnInit {
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
         console.log(this.recomendacoes);
+        if(this.recomendacoes.length == 0){
+          this.recomendacoesNull = null
+        }
       });
 
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {

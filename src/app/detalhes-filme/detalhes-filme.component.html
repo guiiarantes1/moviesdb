@@ -97,7 +97,7 @@
       </section>
     </div>
 
-    <div class="recomendacoes" *ngIf="recomendacoes">
+    <div class="recomendacoes" *ngIf="recomendacoesNull">
       <h3>Recomendações</h3>
       <section class="recomendados">
         <mat-card class="filme" *ngFor="let recomendacao of recomendacoes"  (click)="redirectRecomendation(recomendacao.media_type,recomendacao.id)">
