@@ -176,7 +176,9 @@
   height: 100%;
 
   .elenco {
-    overflow-x: auto;
+    .elenco-grid{
+      overflow-x: auto;
+    }
 
     h3 {
       font-weight: 700;
