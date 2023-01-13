@@ -64,7 +64,7 @@ base_Url = 'https://api.themoviedb.org/3';
 /////////////// SERIES ///////////
 
 getDetailsSerie(id:any): Observable<any>{
-  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR').pipe(first())
+  return this.httpClient.get(this.base_Url+ '/tv/'+ id + '?api_key=' + this.apiKey + '&language=pt-BR')
   //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
   //https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
 }

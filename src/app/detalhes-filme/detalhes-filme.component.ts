@@ -77,7 +77,7 @@ export class DetalhesFilmeComponent implements OnInit {
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
-      console.log(this.credits);
+      console.log(response);
     });
 
     this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
