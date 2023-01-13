@@ -69,6 +69,8 @@ export class DetalhesFilmeComponent implements OnInit {
         console.log(this.recomendacoes);
         if(this.recomendacoes.length == 0){
           this.recomendacoesNull = null
+        }else{
+          this.recomendacoesNull = this.recomendacoes;
         }
       });
 

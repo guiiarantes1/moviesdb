@@ -69,10 +69,13 @@ export class DetalhesSerieComponent implements OnInit {
       .getRecomendationsSerie(this.filmeId)
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
-        console.log(this.recomendacoes);
+
         if(this.recomendacoes.length == 0){
           this.recomendacoesNull = null
+        }else{
+          this.recomendacoesNull = this.recomendacoes;
         }
+
       });
 
     this.filmesService.getCreditsSerie(this.filmeId).subscribe((response: any) => {
