@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       this.filmesFiltrados = this.filmes;
       if (this.filtroAtual.length !== 0) {
         this.filmesFiltrados = this.filmes.filter((filme) =>
-          this.filtroAtual.every((filtro: any) =>
+          this.filtroAtual.some((filtro: any) =>
             filme.genre_ids.includes(GENRES[filtro])
           )
         );
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
     if (!this.filtroAtual.includes(filtro)) {
       this.filtroAtual.push(filtro);
       this.filmesFiltrados = this.filmes.filter((filme) =>
-        this.filtroAtual.every((filtro: any) =>
+        this.filtroAtual.some((filtro: any) =>
           filme.genre_ids.includes(GENRES[filtro])
         )
       );

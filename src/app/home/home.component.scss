@@ -151,8 +151,8 @@
   display: grid;
   justify-content: center;
   grid-template-columns:
-    minmax(200px, max-content)
-    repeat(auto-fill, 200px);
+    minmax(10px, max-content)
+    repeat(auto-fill, 2000px);
   margin: auto !important;
   max-width: 1000px;
   height: auto;
