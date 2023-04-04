@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalhesSerieComponent } from './detalhes-serie/detalhes-serie.component';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { FooterComponent } from './footer/footer.component';
 registerLocaleData(localePT);
 
 @NgModule({
@@ -36,6 +37,7 @@ registerLocaleData(localePT);
     ProfileComponent,
     SearchComponent,
     DetalhesSerieComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
