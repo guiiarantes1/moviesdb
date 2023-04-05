@@ -26,6 +26,7 @@ export class DetalhesFilmeComponent implements OnInit {
   crew!: any[];
   recomendacaoId: any;
   recomendacoesNull!:any;
+  providers:any;
 
   backgroundImg:any = 'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,0f0f0f,acacac)';
 
@@ -100,6 +101,11 @@ export class DetalhesFilmeComponent implements OnInit {
           this.classification = this.releaseDate! + ' anos';
         }
       });
+
+      this.filmesService.getWatchMovies(this.filmeId).subscribe((response:any) => {
+        this.providers = response;
+        console.log(response)
+      })
 
   }
 

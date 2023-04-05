@@ -93,6 +93,9 @@ getGenresSerie():Observable<any>{
 return this.httpClient.get(this.base_Url + '/genre/tv/list?api_key=' + this.apiKey + '&language=pt-BR')
 }
 
+getWatchMovies(id:any):Observable<any>{
+  return this.httpClient.get(this.base_Url + '/movie/' + id + '/watch/providers?api_key='+this.apiKey)
+  }
 
 }
 
