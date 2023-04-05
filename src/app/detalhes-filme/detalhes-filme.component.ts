@@ -26,7 +26,8 @@ export class DetalhesFilmeComponent implements OnInit {
   crew!: any[];
   recomendacaoId: any;
   recomendacoesNull!:any;
-  providers:any;
+  providers!:any[];
+  watchLink!:string;
 
   backgroundImg:any = 'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces_filter(duotone,0f0f0f,acacac)';
 
@@ -46,7 +47,7 @@ export class DetalhesFilmeComponent implements OnInit {
     this.filmesService.getDetails(this.filmeId).subscribe((response: any) => {
       this.detalhes = response;
 
-      console.log(this.backgroundImg)
+      // console.log(this.backgroundImg)
       this.genres = this.detalhes.genres
         .map((genre: any) => genre.name)
         .join(', ');
@@ -67,7 +68,7 @@ export class DetalhesFilmeComponent implements OnInit {
       .getRecomendations(this.filmeId)
       .subscribe((response: any) => {
         this.recomendacoes = response.results;
-        console.log(this.recomendacoes);
+        // console.log(this.recomendacoes);
         if(this.recomendacoes.length == 0){
           this.recomendacoesNull = null
         }else{
@@ -78,7 +79,7 @@ export class DetalhesFilmeComponent implements OnInit {
     this.filmesService.getCredits(this.filmeId).subscribe((response: any) => {
       this.credits = response.cast;
       this.casts = response.crew;
-      console.log(response);
+      // console.log(response);
     });
 
     this.filmesService.getVideo(this.filmeId).subscribe((response: any) => {
@@ -93,7 +94,7 @@ export class DetalhesFilmeComponent implements OnInit {
           (result: any) => result.iso_3166_1 == 'BR'
         ).release_dates[0].certification;
 
-        console.log(this.releaseDate[0]);
+        console.log(response);
 
         if (this.releaseDate[0] === undefined || this.releaseDate[0] === null || this.releaseDate[0] == "L") {
           this.classification = 'Classificação Livre';
@@ -102,9 +103,12 @@ export class DetalhesFilmeComponent implements OnInit {
         }
       });
 
-      this.filmesService.getWatchMovies(this.filmeId).subscribe((response:any) => {
-        this.providers = response;
-        console.log(response)
+      this.filmesService.getWatchMovies(this.filmeId)
+      .subscribe((response:any) => {
+        this.providers = response.results.BR.flatrate
+        this.watchLink = response.results.BR.link
+        console.log(this.providers)
+        console.log(this.watchLink)
       })
 
   }
