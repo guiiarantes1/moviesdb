@@ -97,6 +97,10 @@ getWatchMovies(id:any):Observable<any>{
   return this.httpClient.get(this.base_Url + '/movie/' + id + '/watch/providers?api_key='+this.apiKey)
   }
 
+  getWatchSeries(id:any):Observable<any>{
+    return this.httpClient.get(this.base_Url + '/tv/' + id + '/watch/providers?api_key='+this.apiKey)
+    }
+
 }
 
 

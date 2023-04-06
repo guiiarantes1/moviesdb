@@ -26,6 +26,8 @@ export class DetalhesSerieComponent implements OnInit {
   recomendacaoId: any;
   status:any;
   recomendacoesNull!:any;
+  providers!:any[];
+  watchLink!:string;
 
   constructor(
     private filmesService: FilmesService,
@@ -102,6 +104,14 @@ export class DetalhesSerieComponent implements OnInit {
           this.classification = this.releaseDate! + ' anos';
         }
       });
+
+      this.filmesService.getWatchSeries(this.filmeId)
+      .subscribe((response:any) => {
+        this.providers = response.results.BR.flatrate
+        this.watchLink = response.results.BR.link
+        console.log(this.providers)
+        console.log(this.watchLink)
+      })
   }
 
   updateVideoUrl(key: string) {

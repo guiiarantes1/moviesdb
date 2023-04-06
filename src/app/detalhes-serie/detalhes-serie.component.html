@@ -22,22 +22,29 @@
             {{ genres }} • Status da série: {{status}}
           </p>
         </section>
-        <section class="avaliacao">
-          <div class="{{ nota }}">
-            <div class="spinner-background">
-              {{ spinner.value | number : "1.0-0" }}%
+        <div class="spec">
+          <section class="avaliacao">
+            <div class="{{ nota }}">
+              <div class="spinner-background">
+                {{ spinner.value | number : "1.0-0" }}%
+              </div>
+              <mat-progress-spinner
+                class="nota"
+                #spinner
+                mode="determinate"
+                value="{{ detalhes.vote_average * 10 }}"
+                diameter="80"
+              >
+              </mat-progress-spinner>
             </div>
-            <mat-progress-spinner
-              class="nota"
-              #spinner
-              mode="determinate"
-              value="{{ detalhes.vote_average * 10 }}"
-              diameter="80"
-            >
-            </mat-progress-spinner>
-          </div>
-          <p>Avaliação dos usuários</p>
-        </section>
+            <p>Avaliação dos usuários</p>
+          </section>
+
+          <section class="assistir" *ngIf="providers">
+            <p>Disponível em: </p>
+            <a [href]="watchLink"><img [src]="imgBaseUrl + provider.logo_path" *ngFor="let provider of providers"></a>
+          </section>
+        </div>
         <section class="sinopse" *ngIf="detalhes.overview">
           <p class="titulo-sinopse">Sinopse</p>
           <p>{{ detalhes.overview }}</p>
